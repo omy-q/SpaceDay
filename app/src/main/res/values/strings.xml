@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SpaceDay</string>
+    <string name="hint">Найти в Википедии</string>
+    <string name="settings">Настройки</string>
+    <string name="download">Скачать</string>
+    <string name="helper_text">Что-то не знаешь, спроси у Википедии</string>
+    <string name="first_chip">cегодня</string>
+    <string name="second_chip">вчера</string>
+    <string name="third_chip">позавчера</string>
 </resources>
