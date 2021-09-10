@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import coil.load
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
 import com.example.spaceday.superview.viewmodel.AppState
@@ -91,6 +92,11 @@ class MainFragment :Fragment() {
         when(appState){
             is AppState.Success ->{
                 Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+                binding.mainContent.imageView.load(appState.serverResponseData.url)
+                binding.mainContent.bottomSheetLayout
+                    .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
+                binding.mainContent.bottomSheetLayout
+                    .bottomSheetDescription.text = appState.serverResponseData.explanation
             }
             is AppState.Error ->{
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()

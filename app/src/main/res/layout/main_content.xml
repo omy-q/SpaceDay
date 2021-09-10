@@ -30,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
+            android:hint="@string/hint"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:counterTextAppearance="@style/TextAppearance.AppCompat.Small"
