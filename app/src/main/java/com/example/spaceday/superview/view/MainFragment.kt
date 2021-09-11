@@ -2,7 +2,9 @@ package com.example.spaceday.superview.view
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.*
@@ -117,6 +119,17 @@ class MainFragment :Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBottomSheet(binding.mainContent.bottomSheetLayout.bottomSheetContainer)
+    }
+
+    private fun initInputLayoutListener() {
+        binding.mainContent.textInputLayout.setEndIconOnClickListener{
+            val intent = Intent().apply{
+                action =Intent.ACTION_VIEW
+                data = Uri.parse("https://en.wikipedia.org/wiki/" +
+                        "${binding.mainContent.inputEditText.text.toString()}")
+            }
+            startActivity(intent)
+        }
     }
 
     private fun initBottomSheet(bottomSheet: ConstraintLayout) {
