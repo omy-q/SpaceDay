@@ -2,6 +2,8 @@ package com.example.spaceday.superview.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.spaceday.app.App.Companion.getDB
+import com.example.spaceday.supermodel.local.repository.RepositoryDBImpl
 import com.example.spaceday.supermodel.remote.NASAData
 import com.example.spaceday.supermodel.repository.Repository
 import com.example.spaceday.supermodel.repository.RepositoryImpl
@@ -11,7 +13,7 @@ import retrofit2.Response
 
 class MainViewModel(
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),
-    private val repository: Repository = RepositoryImpl()
+    private val repository: Repository = RepositoryImpl(RepositoryDBImpl(getDB()))
 ) : ViewModel() {
 
     fun getLiveData() = liveData
@@ -38,6 +40,12 @@ class MainViewModel(
         override fun onFailure(call: Call<NASAData>, throwable: Throwable) {
             liveData.postValue(AppState.Error(throwable))
         }
+    }
+    fun saveImage(image : NASAData){
+        repository.saveFavoriteImage(image)
+    }
 
+    fun deleteImage(image : NASAData){
+        repository.deleteFavoriteImage(image)
     }
 }
