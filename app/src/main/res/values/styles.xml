@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">@dimen/main_content_text_input_layout_margin</item>
+        <item name="android:hint">@string/main_content_text_input_layout_hint</item>
+        <item name="hintAnimationEnabled">true</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintTextAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="hintTextColor">@color/main_content_text_input_layout_hint_text</item>
+        <item name="helperText">@string/main_content_text_input_layout_helper_text</item>
+        <item name="helperTextTextColor">@color/main_content_text_input_layout_helper_text</item>
+        <item name="counterEnabled">true</item>
+        <item name="counterMaxLength">10</item>
+        <item name="counterTextColor">@color/main_content_text_input_layout_counter</item>
+        <item name="counterTextAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="counterOverflowTextColor">@color/main_content_text_input_layout_counter_overflow</item>
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="endIconCheckable">true</item>
+        <item name="endIconDrawable">@drawable/ic_wikipedia</item>
+        <item name="endIconMode">custom</item>
+    </style>
+</resources>

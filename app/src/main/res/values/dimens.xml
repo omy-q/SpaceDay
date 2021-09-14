@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- <dimen name="padding">10dp</dimen> -->
     <!-- Navigation Layout Dimens -->
     <dimen name="navigation_view_margin">8dp</dimen>
     <!-- Bottom Sheet Layout Dimens -->
