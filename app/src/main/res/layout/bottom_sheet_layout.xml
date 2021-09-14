@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_bottom_sheep_layout"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/bottom_sheep_peek_height"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <View
+        android:id="@+id/bottomSheetLine"
+        android:layout_width="25dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"
+        android:background="@color/menu_options"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bottomSheetDescriptionHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="@dimen/padding"
+        android:textColor="@color/description"
+        android:textStyle="bold"
+        android:textSize="@dimen/title_description_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"/>
+
+    <TextView
+        android:id="@+id/bottomSheetDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetDescriptionHeader"
+        tools:text="Default"
+        android:textColor="@color/description"
+        android:textSize="@dimen/description_text_size"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
