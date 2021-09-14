@@ -7,18 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <color name="fab">#9609EE</color>
-    <color name="menu_options">#5909EE</color>
-    <color name="app_bar_tint">#130233</color>
-    <color name="helper_text">#5909EE</color>
-
-    <color name="ripple_color">#8E14E4</color>
-    <color name="background_bottom_sheep_layout">#B9B9F8</color>
-
-    <color name="description">#020219</color>
-
-
-
-
+    <!-- <color name="menu_options">#5909EE</color> -->
+    <!-- Bottom Sheet Layout Color -->
+    <color name="bottom_sheet_layout_background">#B9B9F8</color>
+    <color name="bottom_sheet_line_background">#5909EE</color>
+    <color name="bottom_sheet_text_description_header">#020219</color>
+    <color name="bottom_sheet_text_description">#020219</color>
+    <!-- Chips Layout Color -->
+    <color name="chips_layout_ripple_color">#8E14E4</color>
+    <!-- Main Content Layout Color -->
+    <color name="main_content_text_input_layout_counter">#5909EE</color>
+    <color name="main_content_text_input_layout_helper_text">#5909EE</color>
+    <!-- Main Fragment Layout Color -->
+    <color name="main_fragment_fab_tint">#9609EE</color>
+    <color name="main_fragment_bottom_app_bar_tint">#130233</color>
 </resources>

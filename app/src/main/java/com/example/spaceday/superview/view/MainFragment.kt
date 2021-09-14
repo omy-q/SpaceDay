@@ -84,10 +84,10 @@ class MainFragment :Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_load -> {
+            R.id.menuBottomBarDownload -> {
                 Toast.makeText(context, "Download", Toast.LENGTH_SHORT).show()
             }
-            R.id.app_bar_settings -> {
+            R.id.menuBottomBarSettings -> {
                 Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
                 requireActivity().supportFragmentManager
                     .beginTransaction()

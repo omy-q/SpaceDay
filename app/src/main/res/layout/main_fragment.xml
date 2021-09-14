@@ -4,25 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <include
         android:id="@+id/mainContent"
         layout="@layout/main_content"/>
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="center"
-        app:backgroundTint="@color/app_bar_tint"
+        app:backgroundTint="@color/main_fragment_bottom_app_bar_tint"
         app:navigationIcon="@drawable/ic_navigation"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/fab"
+        app:backgroundTint="@color/main_fragment_fab_tint"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_favorite" />
 

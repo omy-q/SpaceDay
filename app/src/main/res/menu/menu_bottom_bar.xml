@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/app_bar_load"
+        android:id="@+id/menuBottomBarDownload"
         android:icon="@drawable/ic_download"
-        android:title="@string/download"
+        android:title="@string/menu_item_title_settings"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/app_bar_settings"
+        android:id="@+id/menuBottomBarSettings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/settings"
+        android:title="@string/menu_item_title_settings"
         app:showAsAction="ifRoom" />
 </menu>

@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">SpaceDay</string>
-    <string name="hint">Найти в Википедии</string>
-    <string name="settings">Настройки</string>
-    <string name="download">Скачать</string>
-    <string name="helper_text">Что-то не знаешь, спроси у Википедии</string>
-    <string name="first_chip">cегодня</string>
-    <string name="second_chip">вчера</string>
-    <string name="third_chip">позавчера</string>
+    <!-- Menu Bottom Bar String -->
+    <string name="menu_item_title_settings">Настройки</string>
+    <string name="menu_item_title_download">Скачать</string>
+    <!-- Menu Navigation String -->
+    <string name="menu_navigation_first_screen">На экран 1</string>
+    <string name="menu_navigation_second_screen">На экран 2</string>
+    <!-- Chips Layout String -->
+    <string name="chips_layout_first_chip">cегодня</string>
+    <string name="chips_layout_second_chip">вчера</string>
+    <string name="chips_layout_third_chip">позавчера</string>
+    <!-- Main Content Layout Dimens -->
+    <string name="main_content_text_input_layout_hint">Найти в Википедии</string>
+    <string name="main_content_text_input_layout_helper_text">Что-то не знаешь, спроси у Википедии</string>
 </resources>

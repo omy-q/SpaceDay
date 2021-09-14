@@ -4,60 +4,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <include
         android:id="@+id/chipsLayout"
         layout="@layout/chips_layout" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <com.example.spaceday.superview.view.CustomImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
-            android:layout_height="@dimen/image_height"
+            android:layout_height="@dimen/main_content_image_height"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/margin"
+            android:layout_margin="@dimen/main_content_image_margin"
             android:src="@drawable/ic_error_load"
             app:layout_constraintBottom_toTopOf="@id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin"
-            android:hint="@string/hint"
+            android:layout_margin="@dimen/main_content_text_input_layout_margin"
+            android:hint="@string/main_content_text_input_layout_hint"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:counterTextAppearance="@style/TextAppearance.AppCompat.Small"
-            app:counterTextColor="@color/helper_text"
+            app:counterTextColor="@color/main_content_text_input_layout_counter"
             app:endIconCheckable="true"
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
-            app:helperText="@string/helper_text"
-            app:helperTextTextColor="@color/helper_text"
+            app:helperText="@string/main_content_text_input_layout_helper_text"
+            app:helperTextTextColor="@color/main_content_text_input_layout_helper_text"
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageView">
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"/>
-
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <include
         android:id="@+id/bottomSheetLayout"
         layout="@layout/bottom_sheet_layout"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
