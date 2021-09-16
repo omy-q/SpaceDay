@@ -7,9 +7,9 @@
     <string name="menu_navigation_first_screen">На экран 1</string>
     <string name="menu_navigation_second_screen">На экран 2</string>
     <!-- Chips Layout String -->
-    <string name="chips_layout_first_chip">cегодня</string>
-    <string name="chips_layout_second_chip">вчера</string>
-    <string name="chips_layout_third_chip">позавчера</string>
+    <string name="chips_layout_first_chip">today</string>
+    <string name="chips_layout_second_chip">yesterday</string>
+    <string name="chips_layout_third_chip">before yesterday</string>
     <!-- Main Content Layout Dimens -->
     <string name="main_content_text_input_layout_hint">Найти в Википедии</string>
     <string name="main_content_text_input_layout_helper_text">Что-то не знаешь, спроси у Википедии</string>

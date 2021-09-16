@@ -36,4 +36,9 @@
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">10dp</item>
     </style>
+
+    <style name="ChipTextAppearance.Base" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">?attr/font</item>
+        <item name="android:fontFamily">?attr/font</item>
+    </style>
 </resources>
