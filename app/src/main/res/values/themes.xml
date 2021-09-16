@@ -26,4 +26,13 @@
         <item name="bottom_sheet_text_description">@color/purple_700</item>
     </style>
 
+    <style name="Theme.SpaceDay.BottomSheet">
+        <item name="font">@font/bebas_neue_regular</item>
+        <item name="bottom_sheet_layout_background">@color/light_mint</item>
+        <item name="bottom_sheet_line_background">@color/dark_mint</item>
+        <item name="bottom_sheet_text_description_header">@color/mint</item>
+        <item name="bottom_sheet_text_description">@color/mint</item>
+    </style>
+
+
 </resources>

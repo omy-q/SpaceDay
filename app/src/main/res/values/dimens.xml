@@ -4,14 +4,15 @@
     <dimen name="navigation_view_margin">8dp</dimen>
     <!-- Bottom Sheet Layout Dimens -->
     <dimen name="bottom_sheet_layout_peek_height">130dp</dimen>
-    <dimen name="bottom_sheet_text_description_header">20sp</dimen>
-    <dimen name="bottom_sheet_text_description">15sp</dimen>
+    <dimen name="bottom_sheet_text_description_header">13sp</dimen>
+    <dimen name="bottom_sheet_text_description">11sp</dimen>
     <dimen name="bottom_sheet_line_width">25dp</dimen>
     <dimen name="bottom_sheet_line_height">1dp</dimen>
     <dimen name="bottom_sheet_layout_margin_top">5dp</dimen>
     <dimen name="bottom_sheet_line_padding">10dp</dimen>
     <dimen name="bottom_sheet_line_margin_start">50dp</dimen>
-    <dimen name="bottom_sheet_description_padding">50dp</dimen>
+    <dimen name="bottom_sheet_description_padding_top">60dp</dimen>
+    <dimen name="bottom_sheet_description_padding_start_end">8dp</dimen>
     <!-- Item Favorite Image Layout Dimens -->
     <dimen name="item_favorite_image_layout_padding">5dp</dimen>
     <dimen name="item_favorite_image_layout_margin">5dp</dimen>
