@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Regular Style -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,18 +8,23 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_purple">#B9B9F8</color>
+
     <!-- Bottom Sheet Layout Color -->
     <color name="bottom_sheet_layout_background">#B9B9F8</color>
     <color name="bottom_sheet_line_background">#5909EE</color>
     <color name="bottom_sheet_text_description_header">#020219</color>
     <color name="bottom_sheet_text_description">#020219</color>
+
     <!-- Chips Layout Color -->
     <color name="chips_layout_ripple_color">#8E14E4</color>
-    <!-- Main Content Layout Color -->
-    <color name="main_content_text_input_layout_counter">#5909EE</color>
-    <color name="main_content_text_input_layout_counter_overflow">#E8096A</color>
-    <color name="main_content_text_input_layout_helper_text">#5909EE</color>
-    <color name="main_content_text_input_layout_hint_text">#5909EE</color>
+
+    <!-- Text Input Layout -->
+    <color name="counter">#141414</color>
+    <color name="counter_overflow">#FAE10000</color>
+    <color name="helper_text">#0005E1</color>
+    <color name="hint_text">#00F49F</color>
+
     <!-- Main Fragment Layout Color -->
     <color name="main_fragment_fab_tint">#9609EE</color>
     <color name="main_fragment_bottom_app_bar_tint">#130233</color>

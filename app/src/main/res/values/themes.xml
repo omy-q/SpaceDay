@@ -12,5 +12,18 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent</item>
+        <item name="textInputStyle">@style/MyTextInputLayout</item>
     </style>
+
+    <style name="Theme.SpaceDay.Regular">
+        <item name="font">@font/roboto_mono_regular</item>
+        <item name="bottom_sheet_layout_background">@color/light_purple</item>
+        <item name="bottom_sheet_line_background">@color/purple_500</item>
+        <item name="bottom_sheet_text_description_header">@color/purple_700</item>
+        <item name="bottom_sheet_text_description">@color/purple_700</item>
+    </style>
+
 </resources>
