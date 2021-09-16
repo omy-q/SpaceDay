@@ -15,6 +15,13 @@
     <color name="dark_mint">#09201C</color>
     <color name="mint">#14513C</color>
 
+    <!-- Space Themes -->
+    <color name="light_main">#8587EF</color>
+    <color name="main">#351CBC</color>
+    <color name="dark_main">#1C0460</color>
+    <color name="secondary">#6329BF</color>
+    <color name="dark_secondary">#2F0475</color>
+
     <!-- Chips Layout Color -->
     <color name="chips_layout_ripple_color">#8E14E4</color>
 

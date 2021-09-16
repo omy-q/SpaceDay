@@ -34,5 +34,20 @@
         <item name="bottom_sheet_text_description">@color/mint</item>
     </style>
 
+    <style name="Theme.SpaceDay.Space">
+        <item name="font">@font/indie_flower_regular</item>
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryVariant">@color/dark_main</item>
+        <item name="colorOnPrimary">@color/light_main</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/dark_secondary</item>
+        <item name="bottom_sheet_layout_background">@color/light_main</item>
+        <item name="bottom_sheet_line_background">@color/dark_main</item>
+        <item name="bottom_sheet_text_description_header">@color/main</item>
+        <item name="bottom_sheet_text_description">@color/main</item>
 
+    </style>
+    <style name="Theme.SpaceDay.TextFont">
+        <item name="font">@font/monte_carlo_regular</item>
+    </style>
 </resources>
