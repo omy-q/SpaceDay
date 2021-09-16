@@ -17,20 +17,23 @@
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             app:rippleColor="@color/chips_layout_ripple_color"
-            android:text="@string/chips_layout_first_chip" />
+            android:text="@string/chips_layout_first_chip"
+            android:fontFamily="?font"/>
         <com.google.android.material.chip.Chip
             android:id="@+id/secondChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             app:rippleColor="@color/chips_layout_ripple_color"
-            android:text="@string/chips_layout_second_chip"/>
+            android:text="@string/chips_layout_second_chip"
+            android:fontFamily="?font"/>
         <com.google.android.material.chip.Chip
             android:id="@+id/thirdChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             app:rippleColor="@color/chips_layout_ripple_color"
-            android:text="@string/chips_layout_third_chip"/>
+            android:text="@string/chips_layout_third_chip"
+            android:fontFamily="?font"/>
     </com.google.android.material.chip.ChipGroup>
 </LinearLayout>

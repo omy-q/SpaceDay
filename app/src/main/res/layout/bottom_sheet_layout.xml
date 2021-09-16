@@ -6,7 +6,7 @@
     android:id="@+id/bottomSheetContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bottom_sheet_layout_background"
+    android:background="?bottom_sheet_layout_background"
     app:behavior_hideable="true"
     app:behavior_peekHeight="@dimen/bottom_sheet_layout_peek_height"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
@@ -16,28 +16,30 @@
         android:layout_height="@dimen/bottom_sheet_line_height"
         android:layout_marginTop="@dimen/bottom_sheet_layout_margin_top"
         android:layout_marginStart="@dimen/bottom_sheet_line_margin_start"
-        android:background="@color/bottom_sheet_line_background"
+        android:background="?bottom_sheet_line_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/bottomSheetDescriptionHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/bottom_sheet_text_description_header"
+        android:textColor="?bottom_sheet_text_description_header"
         android:textSize="@dimen/bottom_sheet_text_description_header"
         android:textStyle="bold"
         android:layout_marginTop="@dimen/bottom_sheet_layout_margin_top"
         android:padding="@dimen/bottom_sheet_line_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"/>
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"
+        android:fontFamily="?font"/>
     <TextView
         android:id="@+id/bottomSheetDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/bottom_sheet_text_description"
+        android:textColor="?bottom_sheet_text_description"
         android:textSize="@dimen/bottom_sheet_text_description"
         tools:text="Default"
+        android:fontFamily="?font"
         android:layout_marginTop="@dimen/bottom_sheet_layout_margin_top"
         android:padding="@dimen/bottom_sheet_description_padding"
         app:layout_constraintEnd_toEndOf="parent"
