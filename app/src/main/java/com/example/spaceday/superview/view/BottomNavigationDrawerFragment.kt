@@ -10,6 +10,7 @@ import com.example.spaceday.R
 import com.example.spaceday.databinding.BottomNavigationLayoutBinding
 import com.example.spaceday.superview.view.favorite.FavoriteImagesFragment
 import com.example.spaceday.superview.view.planet.PlanetActivity
+import com.example.spaceday.superview.view.planet.PlanetBottomNavigationActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
@@ -39,6 +40,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
                 }
                 R.id.menuNavigationSecondScreen -> {
                     Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, PlanetBottomNavigationActivity::class.java))
                 }
                 R.id.menuNavigationThirdScreen -> {
                     Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
