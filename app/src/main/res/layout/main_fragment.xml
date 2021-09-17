@@ -13,13 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:fabAlignmentMode="center"
-        app:backgroundTint="@color/main_fragment_bottom_app_bar_tint"
+        app:backgroundTint="?colorPrimary"
         app:navigationIcon="@drawable/ic_navigation"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/main_fragment_fab_tint"
         app:layout_anchor="@id/bottomAppBar"
         app:srcCompat="@drawable/ic_favorite" />
 
