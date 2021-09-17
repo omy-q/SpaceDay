@@ -1,5 +1,6 @@
 package com.example.spaceday.superview.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.spaceday.R
 import com.example.spaceday.databinding.BottomNavigationLayoutBinding
+import com.example.spaceday.superview.view.favorite.FavoriteImagesFragment
+import com.example.spaceday.superview.view.planet.PlanetActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
@@ -32,9 +35,13 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
             when (item.itemId) {
                 R.id.menuNavigationFirstScreen -> {
                     Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, PlanetActivity::class.java))
                 }
                 R.id.menuNavigationSecondScreen -> {
                     Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                }
+                R.id.menuNavigationThirdScreen -> {
+                    Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
                 }
             }
             true
