@@ -4,7 +4,7 @@
         <item name="android:hint">@string/main_content_text_input_layout_hint</item>
         <item name="hintAnimationEnabled">true</item>
         <item name="hintEnabled">true</item>
-        <item name="hintTextAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="hintTextAppearance">?font</item>
         <item name="hintTextColor">@color/hint_text</item>
         <item name="helperText">@string/main_content_text_input_layout_helper_text</item>
         <item name="helperTextTextColor">@color/helper_text</item>
@@ -19,7 +19,6 @@
         <item name="endIconTint">@color/hint_text</item>
         <item name="endIconMode">custom</item>
         <item name="boxStrokeColor">@color/hint_text</item>
-
     </style>
 
     <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
@@ -40,5 +39,6 @@
     <style name="ChipTextAppearance.Base" parent="TextAppearance.MaterialComponents.Chip">
         <item name="fontFamily">?attr/font</item>
         <item name="android:fontFamily">?attr/font</item>
+        <item name="android:textSize">10sp</item>
     </style>
 </resources>

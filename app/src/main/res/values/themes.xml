@@ -19,7 +19,7 @@
     </style>
 
     <style name="Theme.SpaceDay.Regular">
-        <item name="font">@font/roboto_mono_regular</item>
+        <item name="font">@font/roboto_medium</item>
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
         <item name="bottom_sheet_layout_background">@color/light_purple</item>
         <item name="bottom_sheet_line_background">@color/purple_500</item>
@@ -28,7 +28,7 @@
     </style>
 
     <style name="Theme.SpaceDay.BottomSheet">
-        <item name="font">@font/bebas_neue_regular</item>
+        <item name="font">@font/ruslan_display</item>
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
         <item name="bottom_sheet_layout_background">@color/light_mint</item>
         <item name="bottom_sheet_line_background">@color/dark_mint</item>
@@ -37,7 +37,7 @@
     </style>
 
     <style name="Theme.SpaceDay.Space">
-        <item name="font">@font/indie_flower_regular</item>
+        <item name="font">@font/rubik_italic</item>
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
         <item name="colorPrimary">@color/main</item>
         <item name="colorPrimaryVariant">@color/dark_main</item>
@@ -51,7 +51,7 @@
 
     </style>
     <style name="Theme.SpaceDay.Regular.TextFont">
-        <item name="font">@font/monte_carlo_regular</item>
+        <item name="font">@font/hachi_maru_pop</item>
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
     </style>
 </resources>
