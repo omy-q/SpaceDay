@@ -162,10 +162,20 @@ class MainFragment :Fragment() {
         when (appState) {
             is AppState.Success -> {
                 currentImage = appState.serverResponseData
-                binding.mainContent.imageView.load(appState.serverResponseData.url) {
-                    placeholder(R.drawable.progress_animation)
-                    error(R.drawable.ic_error_load)
+                if (appState.serverResponseData.mediaType == "video"){
+                    val videoIntent = Intent().apply {
+                        action = Intent.ACTION_VIEW
+                        data = Uri.parse(appState.serverResponseData.url)
+                    }
+                    startActivity(videoIntent)
                 }
+                else {
+                    binding.mainContent.imageView.load(appState.serverResponseData.url) {
+                        placeholder(R.drawable.progress_animation)
+                        error(R.drawable.ic_error_load)
+                    }
+                }
+
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
                 binding.mainContent.bottomSheetLayout
