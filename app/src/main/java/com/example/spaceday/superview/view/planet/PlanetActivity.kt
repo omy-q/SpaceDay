@@ -16,6 +16,7 @@ class PlanetActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.viewPager.adapter = ViewPlanetPagerAdapter(this)
         binding.indicator.setViewPager(binding.viewPager)
+        binding.viewPager.setPageTransformer(MyViewPagerTransformer())
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = "OBJECT ${(position + 1)}"
