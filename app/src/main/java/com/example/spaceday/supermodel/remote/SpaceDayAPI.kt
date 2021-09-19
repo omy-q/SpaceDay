@@ -9,4 +9,10 @@ interface SpaceDayAPI {
     fun getImageOfTheDay(
         @Query("api_key") apiKey: String)
             : Call<NASAData>
+
+    @GET("planetary/apod")
+    fun getImageOfTheDate(
+        @Query("api_key") apiKey: String,
+        @Query("date") date :String
+    ) : Call<NASAData>
 }

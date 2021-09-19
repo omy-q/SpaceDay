@@ -20,4 +20,8 @@ class RemoteDataSource {
     fun loadDayImage(callback: Callback<NASAData>){
         apiSource.getImageOfTheDay(BuildConfig.NASA_API_KEY).enqueue(callback)
     }
+
+    fun loadDateImage(date :String, callback: Callback<NASAData>){
+        apiSource.getImageOfTheDate(BuildConfig.NASA_API_KEY, date).enqueue(callback)
+    }
 }

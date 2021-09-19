@@ -6,6 +6,7 @@ import retrofit2.Callback
 
 interface Repository {
     fun getServerData(callback: Callback<NASAData>)
+    fun getDateServerData(date : String, callback: Callback<NASAData>)
     fun getFavoriteImages(callback : CallbackDB)
     fun deleteFavoriteImage(image : NASAData)
     fun saveFavoriteImage(image : NASAData)

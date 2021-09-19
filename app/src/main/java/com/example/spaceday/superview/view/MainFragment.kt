@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -132,10 +133,16 @@ class MainFragment :Fragment() {
                 when(id){
                     R.id.firstChip -> {
                         Toast.makeText(context, "Click 0", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(0)
                     }
-                    R.id.secondChip -> {Toast.makeText(context, "Click 1", Toast.LENGTH_SHORT).show()}
-                    R.id.thirdChip -> {Toast.makeText(context, "Click 2", Toast.LENGTH_SHORT).show()}
-                    else -> Toast.makeText(context, "Click $id", Toast.LENGTH_SHORT).show()
+                    R.id.secondChip -> {
+                        Toast.makeText(context, "Click 1", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(1)
+                    }
+                    R.id.thirdChip -> {
+                        Toast.makeText(context, "Click 2", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(2)
+                    }
                 }
             }
     }
