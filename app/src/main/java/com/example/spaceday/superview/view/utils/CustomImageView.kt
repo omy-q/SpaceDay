@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view
+package com.example.spaceday.superview.view.utils
 
 import android.content.Context
 import android.util.AttributeSet

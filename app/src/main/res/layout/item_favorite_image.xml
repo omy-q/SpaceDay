@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
             android:textSize="@dimen/item_favorite_image_chip_text_size"/>
-        <com.example.spaceday.superview.view.CustomImageView
+        <com.example.spaceday.superview.view.utils.CustomImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

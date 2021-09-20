@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
+import android.widget.MediaController
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -17,6 +18,7 @@ import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import coil.size.Scale
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
@@ -170,34 +172,40 @@ class MainFragment :Fragment() {
             is AppState.Success -> {
                 currentImage = appState.serverResponseData
                 if (appState.serverResponseData.mediaType == "video"){
-                    val videoIntent = Intent().apply {
-                        action = Intent.ACTION_VIEW
-                        data = Uri.parse(appState.serverResponseData.url)
+                    binding.mainContent.imageView.visibility = View.GONE
+                    binding.mainContent.videoView.apply {
+                        visibility = View.VISIBLE
+                        setMediaController(MediaController(context))
+                        setVideoURI(Uri.parse(appState.serverResponseData.url))
                     }
-                    startActivity(videoIntent)
                 }
                 else {
-                    binding.mainContent.imageView.load(appState.serverResponseData.url) {
-                        placeholder(R.drawable.progress_animation)
-                        error(R.drawable.ic_error_load)
+                    binding.mainContent.videoView.visibility = View.GONE
+                    binding.mainContent.imageView.apply {
+                        visibility = View.VISIBLE
+                        load(appState.serverResponseData.url) {
+                            placeholder(R.drawable.progress_animation)
+                            error(R.drawable.ic_error_load)
+                        }
                     }
                 }
-
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescription.text = appState.serverResponseData.explanation
             }
             is AppState.Error -> {
+                binding.mainContent.videoView.visibility = View.GONE
+                binding.mainContent.imageView.visibility = View.VISIBLE
                 binding.mainContent.imageView.load(R.drawable.progress_animation) {
                     error(R.drawable.ic_error_load)
                 }
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
             AppState.Loading -> {
-                binding.mainContent.imageView.load(R.drawable.progress_animation) {
-                    error(R.drawable.ic_error_load)
-                }
+                binding.mainContent.videoView.visibility = View.GONE
+                binding.mainContent.imageView.visibility = View.VISIBLE
+                binding.mainContent.imageView.load(R.drawable.progress_animation)
             }
         }
     }
