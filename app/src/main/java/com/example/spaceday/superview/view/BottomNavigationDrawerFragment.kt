@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.spaceday.R
 import com.example.spaceday.databinding.BottomNavigationLayoutBinding
-import com.example.spaceday.superview.view.favorite.FavoriteImagesFragment
 import com.example.spaceday.superview.view.planet.PlanetActivity
 import com.example.spaceday.superview.view.planet.PlanetBottomNavigationActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

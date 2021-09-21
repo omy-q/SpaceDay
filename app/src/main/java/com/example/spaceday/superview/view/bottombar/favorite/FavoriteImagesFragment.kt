@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view.favorite
+package com.example.spaceday.superview.view.bottombar.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater
