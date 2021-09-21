@@ -25,4 +25,9 @@
 
     <dimen name="text_size">14sp</dimen>
     <dimen name="text_size_header">16sp</dimen>
+    <dimen name="more_information_height_app_bar_layout">300dp</dimen>
+    <dimen name="more_information_title_textsize">15sp</dimen>
+    <dimen name="more_information_date_textsize">13sp</dimen>
+    <dimen name="more_information_description_textsize">13sp</dimen>
+    <dimen name="more_information_btn_textsize">15sp</dimen>
 </resources>
