@@ -20,6 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@drawable/ic_favorite" />
+        app:srcCompat="@drawable/ic_shore_more" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
