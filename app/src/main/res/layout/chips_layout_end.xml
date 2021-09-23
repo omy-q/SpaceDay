@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    app:layoutDescription="@xml/motion_scene_chips">
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/show_chips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_show_chips"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"/>
+    <com.google.android.material.chip.ChipGroup
+        android:visibility="visible"
+        android:id="@+id/chipsGroup"
+        android:layout_width="wrap_content"
+        app:singleLine="true"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/firstChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:checked="true"
+            android:text="@string/chips_layout_first_chip"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/secondChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:text="@string/chips_layout_second_chip" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/thirdChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:text="@string/chips_layout_third_chip"/>
+    </com.google.android.material.chip.ChipGroup>
+</androidx.constraintlayout.motion.widget.MotionLayout>
