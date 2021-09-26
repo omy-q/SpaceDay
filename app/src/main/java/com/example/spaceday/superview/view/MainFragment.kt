@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
 import coil.load
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
@@ -18,6 +20,7 @@ import com.example.spaceday.superview.view.bottombar.information.MoreInformation
 import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.main_content.*
 
 const val MAIN_FRAGMENT_NAME = "MainFragment"
 class MainFragment :Fragment() {
@@ -27,6 +30,8 @@ class MainFragment :Fragment() {
     private val viewModel: MainViewModel by lazy {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
+
+    private var wikipediaIsVisible = false
 
     private var currentImage: NASAData? = null
     private var isPush = false
@@ -45,7 +50,17 @@ class MainFragment :Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         setBottomAppBar()
+        initWikiImageViewListener()
         return binding.root
+    }
+
+    private fun initWikiImageViewListener() {
+        binding.mainContent.wikiImageView.setOnClickListener {
+            TransitionManager.beginDelayedTransition(binding.mainContent.textInputLayoutContainer, Slide(Gravity.START))
+            wikipediaIsVisible = !wikipediaIsVisible
+            binding.mainContent.textInputLayout.visibility = if (wikipediaIsVisible) View.VISIBLE else View.INVISIBLE
+            binding.mainContent.wikiImageView.visibility = View.GONE
+        }
     }
 
     private fun setBottomAppBar() {
@@ -110,6 +125,7 @@ class MainFragment :Fragment() {
         initBottomSheet(binding.mainContent.bottomSheetLayout.bottomSheetContainer)
         initInputLayoutListener()
         initChipChangeListener()
+//        initWikiImageViewListener()
     }
 
     private fun initChipChangeListener() {

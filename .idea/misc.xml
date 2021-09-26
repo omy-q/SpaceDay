@@ -32,12 +32,14 @@
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_main.xml" value="0.159375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet.xml" value="0.13229166666666667" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet_bottom_navigation.xml" value="0.11145833333333334" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_test.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_action_bar.xml" value="0.1" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.159375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.264" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_sheet_layuot.xml" value="0.159375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout.xml" value="0.176" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout2.xml" value="0.25416666666666665" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout_end.xml" value="0.22447916666666667" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout_start.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/favorite_images_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_earth.xml" value="0.2468415937803693" />
@@ -56,6 +58,7 @@
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/tablelayout_earth.xml" value="0.18333333333333332" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/test_end.xml" value="0.17552083333333332" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/test_slide.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/test_start.xml" value="0.18797953964194372" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/text_input_layout_start.xml" value="0.14895833333333333" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/menu/menu_bottom_bar.xml" value="0.159375" />
