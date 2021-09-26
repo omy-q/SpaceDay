@@ -2,6 +2,7 @@ package com.example.spaceday.supermodel.repository
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.example.spaceday.supermodel.local.repository.CallbackDB
 import com.example.spaceday.supermodel.local.repository.RepositoryDB
 import com.example.spaceday.supermodel.remote.NASAData
@@ -16,6 +17,11 @@ class RepositoryImpl(private val localDataSource : RepositoryDB) :Repository {
 
     override fun getServerData(callback: Callback<NASAData>) {
         remoteDataSource.loadDayImage(callback)
+    }
+
+    override fun getDateServerData(date : String, callback: Callback<NASAData>) {
+        Log.i("time", "$date")
+        remoteDataSource.loadDateImage(date, callback)
     }
 
     override fun getFavoriteImages(callback : CallbackDB) {

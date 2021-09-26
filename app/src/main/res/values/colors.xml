@@ -35,4 +35,7 @@
     <!-- Main Fragment Layout Color -->
     <color name="main_fragment_fab_tint">#9609EE</color>
     <color name="main_fragment_bottom_app_bar_tint">#130233</color>
+
+    <color name="colorAccent">#AC1AEC</color>
+    <color name="colorAccent40Alfa">#66AC1AEC</color>
 </resources>

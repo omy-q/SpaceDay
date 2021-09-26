@@ -4,42 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/chipsLayout"
-        layout="@layout/chips_layout" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.spaceday.superview.view.CustomImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/main_content_image_height"
-            android:layout_gravity="center"
+        <include
+            android:id="@+id/chipsLayout"
+            layout="@layout/chips_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.spaceday.superview.view.utils.CustomVideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/main_content_image_margin"
             android:src="@drawable/ic_error_load"
             app:layout_constraintBottom_toTopOf="@id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/chipsLayout" />
+
+        <com.example.spaceday.superview.view.utils.CustomImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_content_image_margin"
+            android:src="@drawable/ic_error_load"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toTopOf="@id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipsLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/main_content_text_input_layout_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textAutoCorrect"
                 android:fontFamily="?font"
-                android:textSize="@dimen/text_size"/>
+                android:inputType="textAutoCorrect"
+                android:textSize="@dimen/text_size" />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

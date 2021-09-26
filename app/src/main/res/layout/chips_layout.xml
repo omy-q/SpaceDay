@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         app:singleLine="true"
         android:layout_height="wrap_content"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        app:selectionRequired="true">
         <com.google.android.material.chip.Chip
             android:id="@+id/firstChip"
             android:layout_width="wrap_content"
@@ -19,6 +20,7 @@
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:textAppearance="@style/ChipTextAppearance.Base"
             app:rippleColor="@color/chips_layout_ripple_color"
+            android:checked="true"
             android:text="@string/chips_layout_first_chip"/>
         <com.google.android.material.chip.Chip
             android:id="@+id/secondChip"

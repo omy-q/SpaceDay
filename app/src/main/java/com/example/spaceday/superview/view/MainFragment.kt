@@ -5,15 +5,20 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.*
+import android.widget.MediaController
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import coil.size.Scale
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
@@ -22,6 +27,7 @@ import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.chip.Chip
 
 class MainFragment :Fragment() {
 
@@ -119,6 +125,28 @@ class MainFragment :Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBottomSheet(binding.mainContent.bottomSheetLayout.bottomSheetContainer)
+        initInputLayoutListener()
+        initChipChangeListener()
+    }
+
+    private fun initChipChangeListener() {
+        binding.mainContent.chipsLayout
+            .chipsGroup.setOnCheckedChangeListener { childGroup, id ->
+                when(id){
+                    R.id.firstChip -> {
+                        Toast.makeText(context, "Click 0", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(0)
+                    }
+                    R.id.secondChip -> {
+                        Toast.makeText(context, "Click 1", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(1)
+                    }
+                    R.id.thirdChip -> {
+                        Toast.makeText(context, "Click 2", Toast.LENGTH_SHORT).show()
+                        viewModel.getDataOfTheDate(2)
+                    }
+                }
+            }
     }
 
     private fun initInputLayoutListener() {
@@ -143,9 +171,23 @@ class MainFragment :Fragment() {
         when (appState) {
             is AppState.Success -> {
                 currentImage = appState.serverResponseData
-                binding.mainContent.imageView.load(appState.serverResponseData.url) {
-                    placeholder(R.drawable.progress_animation)
-                    error(R.drawable.ic_error_load)
+                if (appState.serverResponseData.mediaType == "video"){
+                    binding.mainContent.imageView.visibility = View.GONE
+                    binding.mainContent.videoView.apply {
+                        visibility = View.VISIBLE
+                        setMediaController(MediaController(context))
+                        setVideoURI(Uri.parse(appState.serverResponseData.url))
+                    }
+                }
+                else {
+                    binding.mainContent.videoView.visibility = View.GONE
+                    binding.mainContent.imageView.apply {
+                        visibility = View.VISIBLE
+                        load(appState.serverResponseData.url) {
+                            placeholder(R.drawable.progress_animation)
+                            error(R.drawable.ic_error_load)
+                        }
+                    }
                 }
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
@@ -153,15 +195,17 @@ class MainFragment :Fragment() {
                     .bottomSheetDescription.text = appState.serverResponseData.explanation
             }
             is AppState.Error -> {
+                binding.mainContent.videoView.visibility = View.GONE
+                binding.mainContent.imageView.visibility = View.VISIBLE
                 binding.mainContent.imageView.load(R.drawable.progress_animation) {
                     error(R.drawable.ic_error_load)
                 }
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
             AppState.Loading -> {
-                binding.mainContent.imageView.load(R.drawable.progress_animation) {
-                    error(R.drawable.ic_error_load)
-                }
+                binding.mainContent.videoView.visibility = View.GONE
+                binding.mainContent.imageView.visibility = View.VISIBLE
+                binding.mainContent.imageView.load(R.drawable.progress_animation)
             }
         }
     }
