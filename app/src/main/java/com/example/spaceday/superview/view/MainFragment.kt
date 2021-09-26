@@ -1,34 +1,25 @@
 package com.example.spaceday.superview.view
 
-import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.*
 import android.widget.MediaController
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import coil.size.Scale
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
-import com.example.spaceday.superview.view.favorite.FavoriteImagesFragment
+import com.example.spaceday.superview.view.bottombar.favorite.FavoriteImagesFragment
+import com.example.spaceday.superview.view.bottombar.information.MoreInformationFragment
 import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
 
+const val MAIN_FRAGMENT_NAME = "MainFragment"
 class MainFragment :Fragment() {
 
     private var _binding: MainFragmentBinding? = null
@@ -65,21 +56,13 @@ class MainFragment :Fragment() {
 
     private fun initFab() {
         binding.fab.setOnClickListener {
-            if (isPush) {
-                isPush = false
-                binding.fab.setImageDrawable(
-                    ContextCompat
-                        .getDrawable(requireContext(), R.drawable.ic_favorite)
-                )
-                currentImage?.let { image -> viewModel.deleteImage(image) }
-            } else {
-                isPush = true
-                binding.fab.setImageDrawable(
-                    ContextCompat
-                        .getDrawable(requireContext(), R.drawable.ic_favorite_pushed)
-                )
-                currentImage?.let { image -> viewModel.saveImage(image) }
-            }
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, MoreInformationFragment.newInstance(Bundle().apply {
+                    putParcelable(MoreInformationFragment.BUNDLE_EXTRA, currentImage)
+                }))
+                .addToBackStack(MAIN_FRAGMENT_NAME)
+                .commit()
         }
     }
 

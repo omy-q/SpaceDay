@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+        motion:constraintSetEnd="@layout/chips_layout_end"
+        motion:constraintSetStart="@layout/chips_layout_start"
+        motion:duration="1000">
+        <OnClick
+            motion:targetId="@id/show_chips" />
+    </Transition>
+</MotionScene>

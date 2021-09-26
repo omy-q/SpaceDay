@@ -5,7 +5,7 @@
     <string name="menu_item_title_download">Скачать</string>
     <!-- Menu Navigation String -->
     <string name="menu_navigation_first_screen">Марс и Земля</string>
-    <string name="menu_navigation_second_screen">На экран 2</string>
+    <string name="menu_navigation_second_screen">Марс, Земля и Система</string>
     <string name="menu_navigation_third_screen">На экран 3</string>
     <!-- Chips Layout String -->
     <string name="chips_layout_first_chip">сегодня</string>
@@ -14,4 +14,5 @@
     <!-- Main Content Layout Dimens -->
     <string name="main_content_text_input_layout_hint">Найти в Википедии</string>
     <string name="main_content_text_input_layout_helper_text">Что-то не знаешь, спроси у Википедии</string>
+    <string name="see_video">Смотреть видео</string>
 </resources>
