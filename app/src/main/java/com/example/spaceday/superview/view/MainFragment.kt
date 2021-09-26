@@ -25,7 +25,8 @@ import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.main_content.*
 
 const val MAIN_FRAGMENT_NAME = "MainFragment"
-class MainFragment :Fragment() {
+
+class MainFragment : Fragment() {
 
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
@@ -60,21 +61,26 @@ class MainFragment :Fragment() {
 
     private fun initImageViewListener() {
         binding.mainContent.imageView.setOnClickListener {
-            isExpanded = ! isExpanded
+            isExpanded = !isExpanded
             val set = TransitionSet()
                 .addTransition(ChangeBounds())
                 .addTransition(ChangeImageTransform())
             TransitionManager.beginDelayedTransition(binding.mainContent.imageContainer, set)
-            binding.mainContent.imageView.scaleType = if (isExpanded) ImageView.ScaleType.CENTER_CROP
-            else ImageView.ScaleType.CENTER_INSIDE
+            binding.mainContent.imageView.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP
+                else ImageView.ScaleType.CENTER_INSIDE
         }
     }
 
     private fun initWikiImageViewListener() {
         binding.mainContent.wikiImageView.setOnClickListener {
-            TransitionManager.beginDelayedTransition(binding.mainContent.textInputLayoutContainer, Slide(Gravity.START))
+            TransitionManager.beginDelayedTransition(
+                binding.mainContent.textInputLayoutContainer,
+                Slide(Gravity.START)
+            )
             wikipediaIsVisible = !wikipediaIsVisible
-            binding.mainContent.textInputLayout.visibility = if (wikipediaIsVisible) View.VISIBLE else View.INVISIBLE
+            binding.mainContent.textInputLayout.visibility =
+                if (wikipediaIsVisible) View.VISIBLE else View.INVISIBLE
             binding.mainContent.wikiImageView.visibility = View.GONE
         }
     }
@@ -146,19 +152,19 @@ class MainFragment :Fragment() {
     private fun initChipChangeListener() {
         binding.mainContent.chipsLayout
             .chipsGroup.setOnCheckedChangeListener { childGroup, id ->
-                when(id){
+                when (id) {
                     R.id.firstChip -> {
-                        explode(binding.mainContent.chipsLayout.firstChip)
+                        changeChipSize(binding.mainContent.chipsLayout.firstChip)
                         Toast.makeText(context, "Click 0", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(0)
                     }
                     R.id.secondChip -> {
-                        explode(binding.mainContent.chipsLayout.secondChip)
+                        changeChipSize(binding.mainContent.chipsLayout.secondChip)
                         Toast.makeText(context, "Click 1", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(1)
                     }
                     R.id.thirdChip -> {
-                        explode(binding.mainContent.chipsLayout.thirdChip)
+                        changeChipSize(binding.mainContent.chipsLayout.thirdChip)
                         Toast.makeText(context, "Click 2", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(2)
                     }
@@ -166,25 +172,31 @@ class MainFragment :Fragment() {
             }
     }
 
-    private fun explode(clickedChip : Chip) {
-        val viewRect = Rect()
-        clickedChip.getGlobalVisibleRect(viewRect)
-        val explode = Explode()
-        explode.epicenterCallback = object : Transition.EpicenterCallback(){
-            override fun onGetEpicenter(transition: Transition): Rect {
-                return viewRect
-            }
-        }
-        explode.excludeTarget(clickedChip, true)
-        explode.duration = 2000
-        TransitionManager.beginDelayedTransition(binding.mainContent
-            .chipsLayout.chipsContainer, explode)
+    private fun changeChipSize(clickedChip: Chip) {
+        val set = TransitionSet()
+            .addTransition(ChangeBounds())
+            .addTransition(ChangeImageTransform())
+        TransitionManager.beginDelayedTransition(binding.mainContent.chipsLayout.chipsGroup, set)
 
-        binding.mainContent.chipsLayout.firstChip.visibility = View.INVISIBLE
-        binding.mainContent.chipsLayout.secondChip.visibility = View.INVISIBLE
-        binding.mainContent.chipsLayout.thirdChip.visibility = View.INVISIBLE
+        binding.mainContent.chipsLayout.firstChip.layoutParams
+            .height = resources.getDimensionPixelSize(R.dimen.default_height_chip)
+        binding.mainContent.chipsLayout.secondChip.layoutParams
+            .height = resources.getDimensionPixelSize(R.dimen.default_height_chip)
+        binding.mainContent.chipsLayout.thirdChip.layoutParams
+            .height = resources.getDimensionPixelSize(R.dimen.default_height_chip)
 
-        clickedChip.visibility = View.VISIBLE
+        binding.mainContent.chipsLayout.firstChip.layoutParams
+            .width = resources.getDimensionPixelSize(R.dimen.default_width_chip)
+        binding.mainContent.chipsLayout.secondChip.layoutParams
+            .width = resources.getDimensionPixelSize(R.dimen.default_width_chip)
+        binding.mainContent.chipsLayout.thirdChip.layoutParams
+            .width = resources.getDimensionPixelSize(R.dimen.default_width_chip)
+
+        val params = clickedChip.layoutParams
+        params.width = resources.getDimensionPixelSize(R.dimen.selected_width_chip)
+        params.height = resources.getDimensionPixelSize(R.dimen.selected_height_chip)
+        clickedChip.layoutParams = params
+
     }
 
     private fun initInputLayoutListener() {
@@ -209,15 +221,14 @@ class MainFragment :Fragment() {
         when (appState) {
             is AppState.Success -> {
                 currentImage = appState.serverResponseData
-                if (appState.serverResponseData.mediaType == "video"){
+                if (appState.serverResponseData.mediaType == "video") {
                     binding.mainContent.imageView.visibility = View.GONE
                     binding.mainContent.videoView.apply {
                         visibility = View.VISIBLE
                         setMediaController(MediaController(context))
                         setVideoURI(Uri.parse(appState.serverResponseData.url))
                     }
-                }
-                else {
+                } else {
                     binding.mainContent.videoView.visibility = View.GONE
                     binding.mainContent.imageView.apply {
                         visibility = View.VISIBLE
