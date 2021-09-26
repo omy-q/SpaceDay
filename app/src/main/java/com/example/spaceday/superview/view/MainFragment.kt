@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.MediaController
@@ -23,7 +22,6 @@ import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.main_content.*
 
 const val MAIN_FRAGMENT_NAME = "MainFragment"
@@ -155,10 +153,12 @@ class MainFragment :Fragment() {
                         viewModel.getDataOfTheDate(0)
                     }
                     R.id.secondChip -> {
+                        explode(binding.mainContent.chipsLayout.secondChip)
                         Toast.makeText(context, "Click 1", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(1)
                     }
                     R.id.thirdChip -> {
+                        explode(binding.mainContent.chipsLayout.thirdChip)
                         Toast.makeText(context, "Click 2", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(2)
                     }
@@ -178,8 +178,13 @@ class MainFragment :Fragment() {
         explode.excludeTarget(clickedChip, true)
         explode.duration = 2000
         TransitionManager.beginDelayedTransition(binding.mainContent
-            .chipsLayout.chipsGroup, explode)
+            .chipsLayout.chipsContainer, explode)
 
+        binding.mainContent.chipsLayout.firstChip.visibility = View.INVISIBLE
+        binding.mainContent.chipsLayout.secondChip.visibility = View.INVISIBLE
+        binding.mainContent.chipsLayout.thirdChip.visibility = View.INVISIBLE
+
+        clickedChip.visibility = View.VISIBLE
     }
 
     private fun initInputLayoutListener() {
