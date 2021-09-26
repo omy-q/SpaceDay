@@ -1,8 +1,10 @@
 package com.example.spaceday.superview.view
 
 import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.MediaController
@@ -20,6 +22,8 @@ import com.example.spaceday.superview.view.bottombar.information.MoreInformation
 import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.main_content.*
 
 const val MAIN_FRAGMENT_NAME = "MainFragment"
@@ -146,6 +150,7 @@ class MainFragment :Fragment() {
             .chipsGroup.setOnCheckedChangeListener { childGroup, id ->
                 when(id){
                     R.id.firstChip -> {
+                        explode(binding.mainContent.chipsLayout.firstChip)
                         Toast.makeText(context, "Click 0", Toast.LENGTH_SHORT).show()
                         viewModel.getDataOfTheDate(0)
                     }
@@ -159,6 +164,22 @@ class MainFragment :Fragment() {
                     }
                 }
             }
+    }
+
+    private fun explode(clickedChip : Chip) {
+        val viewRect = Rect()
+        clickedChip.getGlobalVisibleRect(viewRect)
+        val explode = Explode()
+        explode.epicenterCallback = object : Transition.EpicenterCallback(){
+            override fun onGetEpicenter(transition: Transition): Rect {
+                return viewRect
+            }
+        }
+        explode.excludeTarget(clickedChip, true)
+        explode.duration = 2000
+        TransitionManager.beginDelayedTransition(binding.mainContent
+            .chipsLayout.chipsGroup, explode)
+
     }
 
     private fun initInputLayoutListener() {
