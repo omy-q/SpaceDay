@@ -4,13 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.transition.Slide
-import androidx.transition.TransitionManager
+import androidx.transition.*
 import coil.load
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
@@ -32,6 +32,7 @@ class MainFragment :Fragment() {
     }
 
     private var wikipediaIsVisible = false
+    private var isExpanded = false
 
     private var currentImage: NASAData? = null
     private var isPush = false
@@ -51,7 +52,20 @@ class MainFragment :Fragment() {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         setBottomAppBar()
         initWikiImageViewListener()
+        initImageViewListener()
         return binding.root
+    }
+
+    private fun initImageViewListener() {
+        binding.mainContent.imageView.setOnClickListener {
+            isExpanded = ! isExpanded
+            val set = TransitionSet()
+                .addTransition(ChangeBounds())
+                .addTransition(ChangeImageTransform())
+            TransitionManager.beginDelayedTransition(binding.mainContent.imageContainer, set)
+            binding.mainContent.imageView.scaleType = if (isExpanded) ImageView.ScaleType.CENTER_CROP
+            else ImageView.ScaleType.CENTER_INSIDE
+        }
     }
 
     private fun initWikiImageViewListener() {
@@ -125,7 +139,6 @@ class MainFragment :Fragment() {
         initBottomSheet(binding.mainContent.bottomSheetLayout.bottomSheetContainer)
         initInputLayoutListener()
         initChipChangeListener()
-//        initWikiImageViewListener()
     }
 
     private fun initChipChangeListener() {
