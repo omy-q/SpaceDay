@@ -2,13 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/navigation_one"
+            android:id="@+id/menuNavigationFirstScreen"
             android:icon="@drawable/ic_archive"
-            android:title="На экран 1" />
+            android:title="@string/menu_navigation_first_screen" />
         <item
-            android:id="@+id/navigation_two"
+            android:id="@+id/menuNavigationSecondScreen"
             android:icon="@drawable/ic_send"
-            android:title="На экран 2" />
+            android:title="@string/menu_navigation_second_screen" />
     </group>
-
 </menu>

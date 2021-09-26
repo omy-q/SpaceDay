@@ -3,40 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_horizontal">
-
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipsGroup"
         android:layout_width="wrap_content"
+        app:singleLine="true"
         android:layout_height="wrap_content"
         app:singleSelection="true">
-
         <com.google.android.material.chip.Chip
-            android:id="@+id/first"
+            android:id="@+id/firstChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
-            app:rippleColor="@color/ripple_color"
-            android:text="@string/first_chip" />
-
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:text="@string/chips_layout_first_chip"/>
         <com.google.android.material.chip.Chip
-            android:id="@+id/second"
+            android:id="@+id/secondChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
-            app:rippleColor="@color/ripple_color"
-            android:text="@string/second_chip"/>
-
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:text="@string/chips_layout_second_chip" />
         <com.google.android.material.chip.Chip
-            android:id="@+id/third"
+            android:id="@+id/thirdChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Chip.Choice"
-            app:rippleColor="@color/ripple_color"
-            android:text="@string/third_chip"/>
-
+            android:textAppearance="@style/ChipTextAppearance.Base"
+            app:rippleColor="@color/chips_layout_ripple_color"
+            android:text="@string/chips_layout_third_chip"/>
     </com.google.android.material.chip.ChipGroup>
-
 </LinearLayout>

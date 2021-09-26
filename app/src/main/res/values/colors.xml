@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Regular Style -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_200">#C871FF</color>
+    <color name="teal_700">#38044A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <color name="fab">#9609EE</color>
-    <color name="menu_options">#5909EE</color>
-    <color name="app_bar_tint">#130233</color>
-    <color name="helper_text">#5909EE</color>
+    <color name="light_purple">#B9B9F8</color>
 
-    <color name="ripple_color">#8E14E4</color>
-    <color name="background_bottom_sheep_layout">#B9B9F8</color>
+    <!-- Bottom Sheet Layout Color -->
+    <color name="light_mint">#9DF4D7</color>
+    <color name="dark_mint">#09201C</color>
+    <color name="mint">#14513C</color>
 
-    <color name="description">#020219</color>
+    <!-- Space Themes -->
+    <color name="light_main">#8587EF</color>
+    <color name="main">#351CBC</color>
+    <color name="dark_main">#1C0460</color>
+    <color name="secondary">#6329BF</color>
+    <color name="dark_secondary">#2F0475</color>
+    <color name="light_secondary">#D0BCEF</color>
 
+    <!-- Chips Layout Color -->
+    <color name="chips_layout_ripple_color">#8E14E4</color>
 
+    <!-- Text Input Layout -->
+    <color name="counter">#141414</color>
+    <color name="counter_overflow">#FAE10000</color>
+    <color name="helper_text">#0005E1</color>
+    <color name="hint_text">#00F49F</color>
 
-
+    <!-- Main Fragment Layout Color -->
+    <color name="main_fragment_fab_tint">#9609EE</color>
+    <color name="main_fragment_bottom_app_bar_tint">#130233</color>
 </resources>

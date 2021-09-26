@@ -31,7 +31,7 @@ class MainFragment :Fragment() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    private var currentImage : NASAData? = null
+    private var currentImage: NASAData? = null
     private var isPush = false
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -84,10 +84,10 @@ class MainFragment :Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_load -> {
+            R.id.menuBottomBarDownload -> {
                 Toast.makeText(context, "Download", Toast.LENGTH_SHORT).show()
             }
-            R.id.app_bar_settings -> {
+            R.id.menuBottomBarSettings -> {
                 Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
                 requireActivity().supportFragmentManager
                     .beginTransaction()
@@ -122,11 +122,13 @@ class MainFragment :Fragment() {
     }
 
     private fun initInputLayoutListener() {
-        binding.mainContent.textInputLayout.setEndIconOnClickListener{
-            val intent = Intent().apply{
-                action =Intent.ACTION_VIEW
-                data = Uri.parse("https://en.wikipedia.org/wiki/" +
-                        "${binding.mainContent.inputEditText.text.toString()}")
+        binding.mainContent.textInputLayout.setEndIconOnClickListener {
+            val intent = Intent().apply {
+                action = Intent.ACTION_VIEW
+                data = Uri.parse(
+                    "https://en.wikipedia.org/wiki/" +
+                            "${binding.mainContent.inputEditText.text.toString()}"
+                )
             }
             startActivity(intent)
         }
@@ -141,17 +143,25 @@ class MainFragment :Fragment() {
         when (appState) {
             is AppState.Success -> {
                 currentImage = appState.serverResponseData
-                binding.mainContent.imageView.load(appState.serverResponseData.url)
+                binding.mainContent.imageView.load(appState.serverResponseData.url) {
+                    placeholder(R.drawable.progress_animation)
+                    error(R.drawable.ic_error_load)
+                }
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescription.text = appState.serverResponseData.explanation
             }
             is AppState.Error -> {
+                binding.mainContent.imageView.load(R.drawable.progress_animation) {
+                    error(R.drawable.ic_error_load)
+                }
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
             AppState.Loading -> {
-                Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
+                binding.mainContent.imageView.load(R.drawable.progress_animation) {
+                    error(R.drawable.ic_error_load)
+                }
             }
         }
     }
