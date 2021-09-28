@@ -19,7 +19,7 @@ interface SpaceDayAPI {
     @GET("EPIC/api/natural")
     fun getEarthImage(
         @Query("api_key") apiKey: String,
-    ): Call<EarthData>
+    ): Call<ArrayList<EarthDataDTO>>
 
     @GET("mars-photos/api/v1/rovers/curiosity/photos")
     fun getMarsImage(
