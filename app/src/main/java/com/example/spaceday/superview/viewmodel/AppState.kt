@@ -11,6 +11,7 @@ sealed interface AppState{
     data class SuccessMarsData(val serverResponseData: MarsData) : AppState
     data class SuccessPlanetaryData(val serverResponseData: PlanetaryData) : AppState
     data class SuccessDetails(val dbResponseData: List<NASAData>) : AppState
+    data class SuccessMonthData(val serverResponseData: ArrayList<NASAData>) : AppState
     data class Error(val error: Throwable) : AppState
     object Loading : AppState
 }
