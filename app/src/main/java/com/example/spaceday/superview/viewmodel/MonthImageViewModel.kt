@@ -19,7 +19,9 @@ class MonthImageViewModel (
 
     fun getData(){
         liveData.value = AppState.Loading
-//        repository.getMonthImageServerData(callback)
+        val startDate = "2021-09-01"
+        val endDate = "2021-09-30"
+        repository.getMonthServerData(startDate, endDate, callback)
     }
 
     private val callback = object: Callback<ArrayList<NASAData>> {

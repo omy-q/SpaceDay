@@ -16,6 +16,13 @@ interface SpaceDayAPI {
         @Query("date") date :String
     ): Call<NASAData>
 
+    @GET("planetary/apod")
+    fun getImageOfTheMonth(
+        @Query("api_key") apiKey: String,
+        @Query("start_date") startDate :String,
+        @Query("end_date") endDate :String,
+    ): Call<ArrayList<NASAData>>
+
     @GET("EPIC/api/natural")
     fun getEarthImage(
         @Query("api_key") apiKey: String,

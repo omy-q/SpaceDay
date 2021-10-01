@@ -22,6 +22,11 @@ class RepositoryImpl(private val localDataSource : RepositoryDB) :Repository {
         remoteDataSource.loadDateImage(date, callback)
     }
 
+    override fun getMonthServerData(startDate: String, endDate: String,
+                                    callback: Callback<ArrayList<NASAData>>) {
+        remoteDataSource.loadMonthImage(startDate, endDate, callback)
+    }
+
     override fun getEarthServerData(callback: Callback<ArrayList<EarthDataDTO>>) {
         remoteDataSource.loadEarthImage(callback)
     }
