@@ -21,9 +21,9 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
         private const val TYPE_VIDEO = 3
     }
 
-    fun appendItem(data: NASAData){
+    fun appendItem(data: Pair<NASAData, Boolean>){
         monthImage.add(data)
-        notifyItemInserted(itemCount - 1)
+        notifyItemInserted(itemCount - (itemCount - 2))
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

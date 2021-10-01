@@ -25,6 +25,8 @@ class MonthImageFragment : Fragment() {
         ViewModelProvider(this). get(MonthImageViewModel::class.java)
     }
 
+    private  var pushCount = 0
+
     private val adapter = MonthImageAdapter(object : OnItemShowVideoBtnClickListener{
         override fun onItemShowVideoBtnClick(videoData: NASAData) {
             val intent = Intent().apply {
@@ -45,16 +47,23 @@ class MonthImageFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = MonthImageFragmentBinding.inflate(inflater, container, false)
-//        initFab()
+        initFab()
+        initRecyclerView()
         return binding.root
     }
 
-//    private fun initFab() {
-//        binding.monthImageFab.setOnClickListener{
-//            data
-//            adapter.appendItem()
-//        }
-//    }
+    private fun initRecyclerView() {
+        binding.monthImageRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.monthImageRecyclerView
+            .addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+    }
+
+    private fun initFab() {
+        binding.monthImageFab.setOnClickListener{
+            pushCount++
+            monthImageViewModel.getDataOfTheDate(pushCount)
+        }
+    }
 
     override fun onDestroyView() {
         _binding = null
@@ -77,10 +86,10 @@ class MonthImageFragment : Fragment() {
                     "", "", "", "")
                 appState.serverResponseData.add(0, Pair(header, false))
                 binding.monthImageRecyclerView.adapter = adapter
-                binding.monthImageRecyclerView
-                    .addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-                appState.serverResponseData.add(0, header)
                 adapter.setData(appState.serverResponseData)
+            }
+            is AppState.Success -> {
+                adapter.appendItem(Pair(appState.serverResponseData, false))
             }
             is AppState.Error -> {
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
