@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view.bottombar.information
+package com.example.spaceday.superview.view.information
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,6 @@ import coil.load
 import com.example.spaceday.databinding.MoreInformationFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
 import com.example.spaceday.superview.view.MAIN_FRAGMENT_NAME
-import com.example.spaceday.superview.view.MainFragment
 
 class MoreInformationFragment : Fragment() {
     private var nasaData : NASAData? = null
@@ -21,7 +20,7 @@ class MoreInformationFragment : Fragment() {
 
     companion object{
         const val BUNDLE_EXTRA = "image"
-        fun newInstance(bundle: Bundle) : MoreInformationFragment{
+        fun newInstance(bundle: Bundle) : MoreInformationFragment {
             val fragment = MoreInformationFragment()
             fragment.arguments = bundle
             return fragment

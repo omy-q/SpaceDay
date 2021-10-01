@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view.bottombar.information
+package com.example.spaceday.superview.view.information
 
 import android.content.Context
 import android.graphics.Color

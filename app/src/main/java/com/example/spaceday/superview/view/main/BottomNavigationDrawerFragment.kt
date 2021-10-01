@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view
+package com.example.spaceday.superview.view.main
 
 import android.content.Intent
 import android.os.Bundle
