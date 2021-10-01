@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spaceday.R
+import com.example.spaceday.supermodel.MonthData
 import com.example.spaceday.supermodel.remote.NASAData
 
 class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowVideoBtnClickListener)
@@ -26,7 +27,7 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        abstract fun bind(data: NASAData)
+        abstract fun bind(data: Pair<NASAData, Boolean>)
         fun removeItem(){
             monthImage.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
@@ -48,10 +49,17 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
                 notifyItemMoved(currentPosition, currentPosition + 1)
             }
         }
+        fun toggleText() {
+            monthImage[layoutPosition] = monthImage[layoutPosition].let {
+                it.first to !it.second
+            }
+            notifyItemChanged(layoutPosition)
+        }
+
     }
 
     inner class HeaderViewHolder(view: View): BaseViewHolder(view) {
-        override fun bind(headerData: NASAData) {
+        override fun bind(headerData: Pair<NASAData, Boolean>) {
         }
     }
 
@@ -59,19 +67,24 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
         private val dateBtn: Button = itemView.findViewById(R.id.monthImageDateButton)
         private val imageView: ImageView = itemView.findViewById(R.id.monthImageImageView)
         private val imageText: TextView = itemView.findViewById(R.id.monthImageTextView)
+        private val imageTextDescription: TextView = itemView.findViewById(R.id.monthImageTextDescriptionView)
         private val removeItemView : ImageView = itemView.findViewById(R.id.monthImageDelete)
         private val upItemView : ImageView = itemView.findViewById(R.id.monthImageUp)
         private val downItemView : ImageView = itemView.findViewById(R.id.monthImageDown)
 
-        override fun bind(imageData: NASAData){
-            dateBtn.text = imageData.date
-            imageView.load(imageData.url){
+        override fun bind(imageData: Pair<NASAData, Boolean>){
+            dateBtn.text = imageData.first.date
+            imageView.load(imageData.first.url){
                 placeholder(R.drawable.progress_animation)
             }
-            imageText.text = imageData.title
+            imageTextDescription.text = imageData.first.explanation
+            imageTextDescription.visibility = if (imageData.second) View.VISIBLE else View.GONE
+            imageText.text = imageData.first.title
+            imageText.setOnClickListener { toggleText() }
             removeItemView.setOnClickListener {removeItem()}
             upItemView.setOnClickListener { moveUp() }
             downItemView.setOnClickListener { moveDown() }
+
         }
     }
 
@@ -79,25 +92,29 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
         private val dateBtn: Button = itemView.findViewById(R.id.monthVideoDateButton)
         private val videoView: Button = itemView.findViewById(R.id.monthVideoButton)
         private val videoText: TextView = itemView.findViewById(R.id.monthVideoTextView)
+        private val videoTextDescription: TextView = itemView.findViewById(R.id.monthVideoTextDescriptionView)
         private val removeItemView : ImageView = itemView.findViewById(R.id.monthVideoDelete)
         private val upItemView : ImageView = itemView.findViewById(R.id.monthVideoUp)
         private val downItemView : ImageView = itemView.findViewById(R.id.monthVideoDown)
 
-        override fun bind(videoData: NASAData){
-            dateBtn.text = videoData.date
-            videoText.text = videoData.title
+        override fun bind(videoData: Pair<NASAData, Boolean>){
+            dateBtn.text = videoData.first.date
             videoView.setOnClickListener{
-                onItemShowVideoBtnClickListener.onItemShowVideoBtnClick(videoData)
+                onItemShowVideoBtnClickListener.onItemShowVideoBtnClick(videoData.first)
             }
+            videoTextDescription.text = videoData.first.explanation
+            videoTextDescription.visibility = if (videoData.second) View.VISIBLE else View.GONE
+            videoText.text = videoData.first.title
+            videoText.setOnClickListener { toggleText() }
             removeItemView.setOnClickListener {removeItem()}
             upItemView.setOnClickListener { moveUp() }
             downItemView.setOnClickListener { moveDown() }
         }
     }
 
-    private lateinit var monthImage : ArrayList<NASAData>
+    private lateinit var monthImage : ArrayList<Pair<NASAData, Boolean>>
 
-    fun setData(data: ArrayList<NASAData>){
+    fun setData(data: ArrayList<Pair<NASAData, Boolean>>){
         monthImage = data
         notifyDataSetChanged()
     }
@@ -126,8 +143,8 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
     }
 
     override fun getItemViewType(position: Int): Int{
-        return if(monthImage[position].mediaType == "image") TYPE_IMAGE
-        else if (monthImage[position].mediaType == "video") TYPE_VIDEO
+        return if(monthImage[position].first.mediaType == "image") TYPE_IMAGE
+        else if (monthImage[position].first.mediaType == "video") TYPE_VIDEO
         else TYPE_HEADER
     }
 }

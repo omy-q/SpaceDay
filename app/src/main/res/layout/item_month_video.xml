@@ -43,10 +43,19 @@
                 android:id="@+id/monthVideoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/gl_video_end"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/monthVideoButton" />
+
+            <TextView
+                android:id="@+id/monthVideoTextDescriptionView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/gl_video_end"
+                app:layout_constraintTop_toBottomOf="@id/monthVideoTextView"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
                 android:id="@+id/monthVideoDelete"

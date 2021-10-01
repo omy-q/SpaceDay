@@ -21,7 +21,7 @@ class MonthImageFragment : Fragment() {
     private var _binding: MonthImageFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private val recyclerViewModel : MonthImageViewModel by lazy {
+    private val monthImageViewModel : MonthImageViewModel by lazy {
         ViewModelProvider(this). get(MonthImageViewModel::class.java)
     }
 
@@ -63,7 +63,7 @@ class MonthImageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        with(recyclerViewModel) {
+        with(monthImageViewModel) {
             getLiveData().observe(viewLifecycleOwner,{ renderData(it)})
             getData()
         }
@@ -75,7 +75,7 @@ class MonthImageFragment : Fragment() {
                 Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
                 val header = NASAData("", "", "",
                     "", "", "", "")
-                binding.monthImageRecyclerView.layoutManager = LinearLayoutManager(context)
+                appState.serverResponseData.add(0, Pair(header, false))
                 binding.monthImageRecyclerView.adapter = adapter
                 binding.monthImageRecyclerView
                     .addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
