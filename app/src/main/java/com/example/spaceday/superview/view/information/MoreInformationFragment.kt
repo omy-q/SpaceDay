@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager
 import coil.load
 import com.example.spaceday.databinding.MoreInformationFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
-import com.example.spaceday.superview.view.MAIN_FRAGMENT_NAME
+import com.example.spaceday.superview.view.main.MAIN_FRAGMENT_NAME
 
 class MoreInformationFragment : Fragment() {
     private var nasaData : NASAData? = null

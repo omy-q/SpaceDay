@@ -1,5 +1,7 @@
 package com.example.spaceday.superview.viewmodel
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.spaceday.app.App.Companion.getDB
@@ -10,17 +12,25 @@ import com.example.spaceday.supermodel.repository.RepositoryImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
+const val MONTH_IMAGE_FRAGMENT_NAME = "MonthImageFragment"
 class MonthImageViewModel (
     private val liveData: MutableLiveData<AppState> = MutableLiveData(),
     private val repository: Repository = RepositoryImpl(RepositoryDBImpl(getDB()))) : ViewModel(){
 
     fun getLiveData() = liveData
 
+    @SuppressLint("SimpleDateFormat")
     fun getData(){
         liveData.value = AppState.Loading
-        val startDate = "2021-09-01"
-        val endDate = "2021-09-30"
+        val calendar = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val endDate = dateFormat.format(calendar.time)
+        calendar.add(Calendar.MONTH, -1)
+        val startDate = dateFormat.format(calendar.time)
         repository.getMonthServerData(startDate, endDate, callback)
     }
 
