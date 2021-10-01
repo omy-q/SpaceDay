@@ -45,8 +45,16 @@ class MonthImageFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = MonthImageFragmentBinding.inflate(inflater, container, false)
+//        initFab()
         return binding.root
     }
+
+//    private fun initFab() {
+//        binding.monthImageFab.setOnClickListener{
+//            data
+//            adapter.appendItem()
+//        }
+//    }
 
     override fun onDestroyView() {
         _binding = null
