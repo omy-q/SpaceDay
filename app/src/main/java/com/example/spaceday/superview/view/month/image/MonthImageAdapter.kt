@@ -1,5 +1,6 @@
 package com.example.spaceday.superview.view.month.image
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import com.example.spaceday.supermodel.MonthData
 import com.example.spaceday.supermodel.remote.NASAData
 
 class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowVideoBtnClickListener)
-    : RecyclerView.Adapter<MonthImageAdapter.BaseViewHolder>() {
+    : RecyclerView.Adapter<MonthImageAdapter.BaseViewHolder>() , ItemTouchHelperAdapter{
 
     companion object {
         private const val TYPE_HEADER = 1
@@ -26,12 +27,22 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
         notifyItemInserted(itemCount - (itemCount - 2))
     }
 
-    abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    abstract inner class BaseViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),
+        ItemTouchHelperViewHolder {
         abstract fun bind(data: Pair<NASAData, Boolean>)
         fun removeItem(){
             monthImage.removeAt(layoutPosition)
             notifyItemRemoved(layoutPosition)
         }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+
         fun moveUp(){
             layoutPosition.takeIf { it > 1 }?.also { currentPosition ->
                 monthImage.removeAt(currentPosition).apply {
@@ -146,5 +157,20 @@ class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowV
         return if(monthImage[position].first.mediaType == "image") TYPE_IMAGE
         else if (monthImage[position].first.mediaType == "video") TYPE_VIDEO
         else TYPE_HEADER
+    }
+
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        monthImage.removeAt(fromPosition).apply {
+            monthImage.add(
+                if(toPosition > fromPosition) toPosition - 1
+                else toPosition, this
+            )
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        monthImage.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

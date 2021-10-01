@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spaceday.databinding.MonthImageFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
@@ -56,6 +57,8 @@ class MonthImageFragment : Fragment() {
         binding.monthImageRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.monthImageRecyclerView
             .addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+        ItemTouchHelper(ItemTouchHelperCallback(adapter))
+            .attachToRecyclerView(binding.monthImageRecyclerView)
     }
 
     private fun initFab() {
