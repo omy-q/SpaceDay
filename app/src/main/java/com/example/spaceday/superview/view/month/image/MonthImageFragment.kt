@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.spaceday.databinding.MonthImageFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
 import com.example.spaceday.superview.viewmodel.AppState
@@ -27,6 +28,7 @@ class MonthImageFragment : Fragment() {
     }
 
     private  var pushCount = 0
+    private lateinit var itemTouchHelper: ItemTouchHelper
 
     private val adapter = MonthImageAdapter(object : OnItemShowVideoBtnClickListener{
         override fun onItemShowVideoBtnClick(videoData: NASAData) {
@@ -34,7 +36,10 @@ class MonthImageFragment : Fragment() {
                 action = Intent.ACTION_VIEW
                 data = Uri.parse(videoData.url)
             }
-            startActivity(intent)
+            startActivity(intent) }
+    }, object : OnStartDragListener{
+        override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+            itemTouchHelper.startDrag(viewHolder)
         }
     })
 
@@ -57,8 +62,8 @@ class MonthImageFragment : Fragment() {
         binding.monthImageRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.monthImageRecyclerView
             .addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-        ItemTouchHelper(ItemTouchHelperCallback(adapter))
-            .attachToRecyclerView(binding.monthImageRecyclerView)
+        itemTouchHelper =  ItemTouchHelper(ItemTouchHelperCallback(adapter))
+        itemTouchHelper.attachToRecyclerView(binding.monthImageRecyclerView)
     }
 
     private fun initFab() {

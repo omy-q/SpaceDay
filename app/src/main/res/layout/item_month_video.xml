@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/monthVideoCardView"
@@ -14,6 +15,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="start"
+                app:constraint_referenced_ids="gl_video_start" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="gl_video_end" />
 
             <Button
                 android:id="@+id/monthVideoDateButton"
@@ -30,21 +45,28 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.8" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_video_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
             <Button
                 android:id="@+id/monthVideoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/item_video_text_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/gl_video_end"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
                 app:layout_constraintTop_toBottomOf="@id/monthVideoDateButton" />
 
             <TextView
                 android:id="@+id/monthVideoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@id/gl_video_end"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
                 app:layout_constraintTop_toBottomOf="@id/monthVideoButton" />
 
             <TextView
@@ -52,8 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/gl_video_end"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
                 app:layout_constraintTop_toBottomOf="@id/monthVideoTextView"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -80,10 +102,20 @@
                 android:layout_width="@dimen/item_month_size_options"
                 android:layout_height="@dimen/item_month_size_options"
                 app:layout_constraintStart_toStartOf="@id/gl_video_end"
-                app:layout_constraintBottom_toTopOf="@id/monthVideoDown"
+                app:layout_constraintBottom_toTopOf="@id/dragHandleImageView"
                 app:layout_constraintTop_toBottomOf="@id/monthVideoDateButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_up" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dragHandleImageView"
+                android:layout_width="@dimen/item_month_size_drag_handle"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_navigation"
+                app:layout_constraintStart_toStartOf="@id/gl_video_end"
+                app:layout_constraintBottom_toTopOf="@id/monthVideoDown"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
