@@ -19,47 +19,59 @@
                 android:id="@+id/monthImageDateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <ImageView
+            <com.example.spaceday.superview.view.utils.CustomImageView
                 android:id="@+id/monthImageImageView"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/item_month_image_width"
                 android:layout_height="wrap_content"
+                android:scaleType="centerInside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/gl_image_end"
                 app:layout_constraintTop_toBottomOf="@id/monthImageDateButton"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_image_end"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
 
             <TextView
                 android:id="@+id/monthImageTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/gl_image_end"
                 app:layout_constraintTop_toBottomOf="@id/monthImageImageView"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
                 android:id="@+id/monthImageDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
                 app:srcCompat="@drawable/ic_delete"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <ImageView
                 android:id="@+id/monthImageDown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
                 app:srcCompat="@drawable/ic_down"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/monthImageDelete"/>
 
             <ImageView
                 android:id="@+id/monthImageUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
                 app:srcCompat="@drawable/ic_up"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/monthImageDown"
                 app:layout_constraintTop_toBottomOf="@id/monthImageDateButton"/>

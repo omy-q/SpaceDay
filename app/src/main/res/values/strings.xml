@@ -15,4 +15,6 @@
     <string name="main_content_text_input_layout_hint">Найти в Википедии</string>
     <string name="main_content_text_input_layout_helper_text">Что-то не знаешь, спроси у Википедии</string>
     <string name="see_video">Смотреть видео</string>
+    <string name="item_month_header_text">Photo of the month</string>
+    <string name="item_video_text_btn">Show video</string>
 </resources>
