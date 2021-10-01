@@ -1,20 +1,18 @@
 package com.example.spaceday.superview.view.month.image
 
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spaceday.R
 import com.example.spaceday.supermodel.remote.NASAData
 
-class MonthImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MonthImageAdapter(private val onItemShowVideoBtnClickListener: OnItemShowVideoBtnClickListener)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val TYPE_HEADER = 1
@@ -33,8 +31,10 @@ class MonthImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(imageData: NASAData){
             dateBtn.text = imageData.date
-            imageView.load(imageData.url)
-            imageText.text = imageData.explanation
+            imageView.load(imageData.url){
+                placeholder(R.drawable.progress_animation)
+            }
+            imageText.text = imageData.title
         }
     }
 
@@ -45,7 +45,10 @@ class MonthImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(videoData: NASAData){
             dateBtn.text = videoData.date
-            videoText.text = videoData.explanation
+            videoText.text = videoData.title
+            videoView.setOnClickListener{
+                onItemShowVideoBtnClickListener.onItemShowVideoBtnClick(videoData)
+            }
         }
     }
 
@@ -60,27 +63,35 @@ class MonthImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        return if (viewType == TYPE_HEADER) { HeaderViewHolder(inflater
-            .inflate(R.layout.item_month_header, parent, false) as View)
-        } else if (viewType == TYPE_IMAGE){
-            ImageViewHolder(inflater
+        return when (viewType) {
+            TYPE_IMAGE -> { ImageViewHolder(inflater
                 .inflate(R.layout.item_month_image, parent, false) as View)
-        } else{
-            VideoViewHolder(inflater
-                .inflate(R.layout.item_month_video, parent, false) as View)
+            }
+            TYPE_VIDEO -> {
+                VideoViewHolder(inflater
+                    .inflate(R.layout.item_month_video, parent, false) as View)
+            }
+            else -> {
+                HeaderViewHolder(inflater
+                    .inflate(R.layout.item_month_header, parent, false) as View)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int){
-        if (getItemViewType(position) == TYPE_HEADER){
-            holder as HeaderViewHolder
-            holder.bind()
-        } else if (getItemViewType(position) == TYPE_IMAGE){
-            holder as ImageViewHolder
-            holder.bind(monthImage[position])
-        } else {
-            holder as VideoViewHolder
-            holder.bind(monthImage[position])
+        when(getItemViewType(position)) {
+            TYPE_IMAGE -> {
+                holder as ImageViewHolder
+                holder.bind(monthImage[position])
+            }
+            TYPE_VIDEO -> {
+                holder as VideoViewHolder
+                holder.bind(monthImage[position])
+            }
+            else -> {
+                holder as HeaderViewHolder
+                holder.bind()
+            }
         }
     }
 
