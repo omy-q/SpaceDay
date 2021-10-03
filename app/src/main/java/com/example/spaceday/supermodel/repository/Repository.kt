@@ -1,12 +1,15 @@
 package com.example.spaceday.supermodel.repository
 
 import com.example.spaceday.supermodel.local.repository.CallbackDB
-import com.example.spaceday.supermodel.remote.NASAData
+import com.example.spaceday.supermodel.remote.*
 import retrofit2.Callback
 
 interface Repository {
     fun getServerData(callback: Callback<NASAData>)
     fun getDateServerData(date : String, callback: Callback<NASAData>)
+    fun getEarthServerData(callback: Callback<ArrayList<EarthDataDTO>>)
+    fun getMarsServerData(date: String, callback: Callback<MarsData>)
+    fun getPlanetaryServerData(lat: String, lon: String, callback: Callback<PlanetaryData>)
     fun getFavoriteImages(callback : CallbackDB)
     fun deleteFavoriteImage(image : NASAData)
     fun saveFavoriteImage(image : NASAData)

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <include
         android:id="@+id/mainContent"
-        layout="@layout/main_content_start"/>
+        layout="@layout/main_content"/>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"

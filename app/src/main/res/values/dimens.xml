@@ -30,4 +30,9 @@
     <dimen name="more_information_date_textsize">13sp</dimen>
     <dimen name="more_information_description_textsize">13sp</dimen>
     <dimen name="more_information_btn_textsize">15sp</dimen>
+    <dimen name="default_width_chip">80dp</dimen>
+    <dimen name="default_height_chip">40dp</dimen>
+
+    <dimen name="selected_width_chip">80dp</dimen>
+    <dimen name="selected_height_chip">50dp</dimen>
 </resources>

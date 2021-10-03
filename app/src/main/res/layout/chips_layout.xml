@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/chipsContainer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     android:gravity="center_horizontal">
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipsGroup"
         android:layout_width="wrap_content"
+        android:layout_height="@dimen/selected_height_chip"
         app:singleLine="true"
-        android:layout_height="wrap_content"
         app:singleSelection="true"
         app:selectionRequired="true">
         <com.google.android.material.chip.Chip
             android:id="@+id/firstChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/default_width_chip"
+            android:layout_height="@dimen/default_height_chip"
+            android:textAlignment="center"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:textAppearance="@style/ChipTextAppearance.Base"
             app:rippleColor="@color/chips_layout_ripple_color"
@@ -24,19 +26,21 @@
             android:text="@string/chips_layout_first_chip"/>
         <com.google.android.material.chip.Chip
             android:id="@+id/secondChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/default_width_chip"
+            android:layout_height="@dimen/default_height_chip"
+            android:textAlignment="center"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:textAppearance="@style/ChipTextAppearance.Base"
             app:rippleColor="@color/chips_layout_ripple_color"
             android:text="@string/chips_layout_second_chip" />
         <com.google.android.material.chip.Chip
             android:id="@+id/thirdChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/default_width_chip"
+            android:layout_height="@dimen/default_height_chip"
+            android:textAlignment="center"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:textAppearance="@style/ChipTextAppearance.Base"
             app:rippleColor="@color/chips_layout_ripple_color"
-            android:text="@string/chips_layout_third_chip"/>
+            android:text="@string/chips_layout_third_chip" />
     </com.google.android.material.chip.ChipGroup>
 </LinearLayout>
