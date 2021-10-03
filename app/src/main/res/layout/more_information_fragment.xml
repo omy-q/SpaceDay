@@ -39,7 +39,8 @@
                 <TextView
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/architects_daughter"/>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -112,6 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/see_video"
+                android:fontFamily="@font/architects_daughter"
                 android:textSize="@dimen/more_information_btn_textsize"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/gl_center_btn"
