@@ -18,33 +18,35 @@
         android:background="?bottom_sheet_line_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/bottomSheetDescriptionHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/bottom_sheet_layout_margin_top"
+        android:fontFamily="@font/architects_daughter"
+        android:gravity="center_horizontal"
         android:textColor="?bottom_sheet_text_description_header"
         android:textSize="@dimen/bottom_sheet_text_description_header"
         android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="@dimen/bottom_sheet_layout_margin_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine"
-        android:fontFamily="?font"/>
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetLine" />
+
     <TextView
         android:id="@+id/bottomSheetDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?bottom_sheet_text_description"
-        android:textSize="@dimen/bottom_sheet_text_description"
-        tools:text="Default"
-        android:fontFamily="?font"
         android:layout_marginTop="@dimen/bottom_sheet_description_margin_top"
+        android:fontFamily="@font/architects_daughter"
         android:gravity="center_horizontal"
         android:paddingStart="@dimen/bottom_sheet_description_padding_start_end"
         android:paddingEnd="@dimen/bottom_sheet_description_padding_start_end"
+        android:textColor="?bottom_sheet_text_description"
+        android:textSize="@dimen/bottom_sheet_text_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomSheetDescriptionHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/bottomSheetDescriptionHeader"
+        tools:text="Default" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -243,19 +243,19 @@ class MainFragment : Fragment() {
                     .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescription.text = appState.serverResponseData.explanation
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                    binding.mainContent.bottomSheetLayout
-                        .bottomSheetDescriptionHeader.typeface = resources.getFont(R.font.hachi_maru_pop)
-                    binding.mainContent.bottomSheetLayout
-                        .bottomSheetDescription.typeface = resources.getFont(R.font.hachi_maru_pop)
-                } else{
-                    binding.mainContent.bottomSheetLayout.bottomSheetDescriptionHeader
-                        .typeface = Typeface.createFromAsset(requireActivity().assets,
-                        "hachi_maru_pop.ttf")
-                    binding.mainContent.bottomSheetLayout.bottomSheetDescription
-                        .typeface = Typeface.createFromAsset(requireActivity().assets,
-                        "hachi_maru_pop.ttf")
-                }
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//                    binding.mainContent.bottomSheetLayout
+//                        .bottomSheetDescriptionHeader.typeface = resources.getFont(R.font.hachi_maru_pop)
+//                    binding.mainContent.bottomSheetLayout
+//                        .bottomSheetDescription.typeface = resources.getFont(R.font.hachi_maru_pop)
+//                } else{
+//                    binding.mainContent.bottomSheetLayout.bottomSheetDescriptionHeader
+//                        .typeface = Typeface.createFromAsset(requireActivity().assets,
+//                        "hachi_maru_pop.ttf")
+//                    binding.mainContent.bottomSheetLayout.bottomSheetDescription
+//                        .typeface = Typeface.createFromAsset(requireActivity().assets,
+//                        "hachi_maru_pop.ttf")
+//                }
             }
             is AppState.Error -> {
                 binding.mainContent.videoView.visibility = View.GONE

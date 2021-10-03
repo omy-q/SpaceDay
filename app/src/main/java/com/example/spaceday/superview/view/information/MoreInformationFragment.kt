@@ -69,18 +69,18 @@ class MoreInformationFragment : Fragment() {
                 titleTextView.text = nasaData.title
                 descriptionTextView.text = nasaData.explanation
                 dateTextView.text = nasaData.date
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                    titleTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
-                    descriptionTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
-                    dateTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
-                } else{
-                    titleTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
-                        "hachi_maru_pop.ttf")
-                    descriptionTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
-                        "hachi_maru_pop.ttf")
-                    dateTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
-                        "hachi_maru_pop.ttf")
-                }
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//                    titleTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+//                    descriptionTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+//                    dateTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+//                } else{
+//                    titleTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+//                        "hachi_maru_pop.ttf")
+//                    descriptionTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+//                        "hachi_maru_pop.ttf")
+//                    dateTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+//                        "hachi_maru_pop.ttf")
+//                }
             }
         }
 
