@@ -1,12 +1,10 @@
-package com.example.spaceday.superview.view.bottombar.favorite
+package com.example.spaceday.superview.view.favorite
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spaceday.R

@@ -1,4 +1,4 @@
-package com.example.spaceday.superview.view
+package com.example.spaceday.superview.view.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.spaceday.R
 import com.example.spaceday.databinding.BottomNavigationLayoutBinding
+import com.example.spaceday.superview.view.month.image.MonthImageFragment
 import com.example.spaceday.superview.view.planet.PlanetActivity
 import com.example.spaceday.superview.view.planet.PlanetBottomNavigationActivity
+import com.example.spaceday.superview.viewmodel.MONTH_IMAGE_FRAGMENT_NAME
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
@@ -43,6 +45,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment(){
                 }
                 R.id.menuNavigationThirdScreen -> {
                     Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
+                    requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.container, MonthImageFragment.newInstance())
+                        .addToBackStack(MONTH_IMAGE_FRAGMENT_NAME)
+                        .commit()
                 }
             }
             true

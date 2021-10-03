@@ -7,6 +7,7 @@ import retrofit2.Callback
 interface Repository {
     fun getServerData(callback: Callback<NASAData>)
     fun getDateServerData(date : String, callback: Callback<NASAData>)
+    fun getMonthServerData(startDate : String, endDate : String, callback: Callback<ArrayList<NASAData>>)
     fun getEarthServerData(callback: Callback<ArrayList<EarthDataDTO>>)
     fun getMarsServerData(date: String, callback: Callback<MarsData>)
     fun getPlanetaryServerData(lat: String, lon: String, callback: Callback<PlanetaryData>)

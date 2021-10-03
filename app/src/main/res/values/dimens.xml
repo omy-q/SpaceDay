@@ -35,4 +35,7 @@
 
     <dimen name="selected_width_chip">80dp</dimen>
     <dimen name="selected_height_chip">50dp</dimen>
+    <dimen name="item_month_size_options">50dp</dimen>
+    <dimen name="item_month_image_width">250dp</dimen>
+    <dimen name="item_month_size_drag_handle">30dp</dimen>
 </resources>

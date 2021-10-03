@@ -1,7 +1,6 @@
-package com.example.spaceday.superview.view
+package com.example.spaceday.superview.view.main
 
 import android.content.Intent
-import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -16,13 +15,13 @@ import coil.load
 import com.example.spaceday.R
 import com.example.spaceday.databinding.MainFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
-import com.example.spaceday.superview.view.bottombar.favorite.FavoriteImagesFragment
-import com.example.spaceday.superview.view.bottombar.information.MoreInformationFragment
+import com.example.spaceday.superview.view.MainActivity
+import com.example.spaceday.superview.view.favorite.FavoriteImagesFragment
+import com.example.spaceday.superview.view.information.MoreInformationFragment
 import com.example.spaceday.superview.viewmodel.AppState
 import com.example.spaceday.superview.viewmodel.MainViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
-import kotlinx.android.synthetic.main.main_content.*
 
 const val MAIN_FRAGMENT_NAME = "MainFragment"
 

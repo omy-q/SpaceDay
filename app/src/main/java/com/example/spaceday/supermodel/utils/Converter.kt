@@ -1,6 +1,7 @@
 package com.example.spaceday.supermodel.utils
 
 import android.util.Log
+import com.example.spaceday.supermodel.MonthData
 import com.example.spaceday.supermodel.local.FavoriteEntity
 import com.example.spaceday.supermodel.remote.EarthData
 import com.example.spaceday.supermodel.remote.EarthDataDTO
@@ -43,4 +44,12 @@ fun convertEarthDTOtoData(earthDataDTO : ArrayList<EarthDataDTO>) : ArrayList<Ea
         earthData.add(EarthData(date, time, data.caption, url))
     }
     return earthData
+}
+
+fun convertNasaToMonthData(nasaData: ArrayList<NASAData>) : ArrayList<Pair<NASAData, Boolean>> {
+    val pairData : ArrayList<Pair<NASAData, Boolean>> = arrayListOf()
+    for (data in nasaData){
+        pairData.add(Pair(data, false))
+    }
+    return pairData
 }

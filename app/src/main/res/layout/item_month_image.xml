@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/white">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/monthImageCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="start"
+                app:constraint_referenced_ids="gl_image_start" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="gl_image_end" />
+
+            <Button
+                android:id="@+id/monthImageDateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.example.spaceday.superview.view.utils.CustomImageView
+                android:id="@+id/monthImageImageView"
+                android:layout_width="@dimen/item_month_image_width"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
+                app:layout_constraintTop_toBottomOf="@id/monthImageDateButton"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_image_end"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_image_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <TextView
+                android:id="@+id/monthImageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
+                app:layout_constraintTop_toBottomOf="@id/monthImageImageView"/>
+
+            <TextView
+                android:id="@+id/monthImageTextDescriptionView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/barrierStart"
+                app:layout_constraintEnd_toEndOf="@id/barrierEnd"
+                app:layout_constraintTop_toBottomOf="@id/monthImageTextView"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/monthImageDelete"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
+                app:srcCompat="@drawable/ic_delete"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/monthImageDown"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
+                app:srcCompat="@drawable/ic_down"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/monthImageDelete"/>
+
+            <ImageView
+                android:id="@+id/monthImageUp"
+                android:layout_width="@dimen/item_month_size_options"
+                android:layout_height="@dimen/item_month_size_options"
+                app:srcCompat="@drawable/ic_up"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/dragHandleImageView"
+                app:layout_constraintTop_toBottomOf="@id/monthImageDateButton"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dragHandleImageView"
+                android:layout_width="@dimen/item_month_size_drag_handle"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_navigation"
+                app:layout_constraintStart_toStartOf="@id/gl_image_end"
+                app:layout_constraintBottom_toTopOf="@id/monthImageDown"
+                app:layout_constraintTop_toBottomOf="@id/monthImageUp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

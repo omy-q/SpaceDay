@@ -25,6 +25,10 @@ class RemoteDataSource {
         apiSource.getImageOfTheDate(BuildConfig.NASA_API_KEY, date).enqueue(callback)
     }
 
+    fun loadMonthImage(startDate : String, endDate: String, callback: Callback<ArrayList<NASAData>>){
+        apiSource.getImageOfTheMonth(BuildConfig.NASA_API_KEY, startDate, endDate).enqueue(callback)
+    }
+
     fun loadEarthImage(callback : Callback<ArrayList<EarthDataDTO>>){
         apiSource.getEarthImage(BuildConfig.NASA_API_KEY).enqueue(callback)
     }

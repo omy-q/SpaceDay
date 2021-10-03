@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.spaceday.R
 import com.example.spaceday.databinding.ActivityMainBinding
+import com.example.spaceday.superview.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding

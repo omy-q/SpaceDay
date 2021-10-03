@@ -38,4 +38,6 @@
 
     <color name="colorAccent">#AC1AEC</color>
     <color name="colorAccent40Alfa">#66AC1AEC</color>
+
+    <color name="gray">#66707070</color>
 </resources>

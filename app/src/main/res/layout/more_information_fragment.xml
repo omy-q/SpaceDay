@@ -48,7 +48,7 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior=".superview.view.bottombar.information.MyBehavior">
+        app:layout_behavior=".superview.view.information.MyBehavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/more_information_layout"
