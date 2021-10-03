@@ -1,7 +1,9 @@
 package com.example.spaceday.superview.view.information
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import coil.load
+import com.example.spaceday.R
 import com.example.spaceday.databinding.MoreInformationFragmentBinding
 import com.example.spaceday.supermodel.remote.NASAData
 import com.example.spaceday.superview.view.main.MAIN_FRAGMENT_NAME
@@ -66,6 +69,18 @@ class MoreInformationFragment : Fragment() {
                 titleTextView.text = nasaData.title
                 descriptionTextView.text = nasaData.explanation
                 dateTextView.text = nasaData.date
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                    titleTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+                    descriptionTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+                    dateTextView.typeface = resources.getFont(R.font.hachi_maru_pop)
+                } else{
+                    titleTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+                        "hachi_maru_pop.ttf")
+                    descriptionTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+                        "hachi_maru_pop.ttf")
+                    dateTextView.typeface = Typeface.createFromAsset(requireActivity().assets,
+                        "hachi_maru_pop.ttf")
+                }
             }
         }
 
