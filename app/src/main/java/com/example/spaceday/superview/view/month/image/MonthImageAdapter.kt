@@ -14,9 +14,7 @@ import androidx.core.view.MotionEventCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.spaceday.R
-import com.example.spaceday.supermodel.MonthData
 import com.example.spaceday.supermodel.remote.NASAData
-import kotlinx.android.synthetic.main.item_month_image.view.*
 
 class MonthImageAdapter(
     private val onItemShowVideoBtnClickListener: OnItemShowVideoBtnClickListener,

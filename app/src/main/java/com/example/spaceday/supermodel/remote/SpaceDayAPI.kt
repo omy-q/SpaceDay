@@ -32,7 +32,7 @@ interface SpaceDayAPI {
     fun getMarsImage(
         @Query("api_key") apiKey: String,
         @Query("earth_date") earthDate : String
-    ): Call<MarsData>
+    ): Call<MarsDataDTO>
 
     @GET("planetary/earth/assets")
     fun getPlanetaryImage(
