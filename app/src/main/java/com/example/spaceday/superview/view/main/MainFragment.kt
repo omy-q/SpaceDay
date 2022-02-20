@@ -1,8 +1,18 @@
 package com.example.spaceday.superview.view.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.AbsoluteSizeSpan
+import android.text.style.BackgroundColorSpan
+import android.text.style.BulletSpan
+import android.text.style.DrawableMarginSpan
 import android.view.*
 import android.widget.ImageView
 import android.widget.MediaController
@@ -237,8 +247,17 @@ class MainFragment : Fragment() {
                         }
                     }
                 }
+                val spannable = SpannableString(appState.serverResponseData.title)
+                spannable.setSpan(DrawableMarginSpan(resources.getDrawable(R.drawable.ic_planet,
+                    requireContext().theme)), 0, spannable.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannable.setSpan(BackgroundColorSpan(resources.getColor(R.color.title,
+                    requireContext().theme)),0, spannable.length / 2,
+                    Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+                spannable.setSpan(AbsoluteSizeSpan(25, true), spannable.length / 2,
+                spannable.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
                 binding.mainContent.bottomSheetLayout
-                    .bottomSheetDescriptionHeader.text = appState.serverResponseData.title
+                    .bottomSheetDescriptionHeader.text = spannable
                 binding.mainContent.bottomSheetLayout
                     .bottomSheetDescription.text = appState.serverResponseData.explanation
             }
