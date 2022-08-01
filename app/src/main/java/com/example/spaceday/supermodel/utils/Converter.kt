@@ -1,13 +1,7 @@
 package com.example.spaceday.supermodel.utils
 
-import android.util.Log
-import com.example.spaceday.supermodel.MonthData
 import com.example.spaceday.supermodel.local.FavoriteEntity
-import com.example.spaceday.supermodel.remote.EarthData
-import com.example.spaceday.supermodel.remote.EarthDataDTO
-import com.example.spaceday.supermodel.remote.NASAData
-import com.google.gson.Gson
-import org.w3c.dom.Entity
+import com.example.spaceday.supermodel.remote.*
 
 fun convertTypes(entityList: List<FavoriteEntity>) : List<NASAData>{
     val images : List<NASAData> = entityList.map {
@@ -52,4 +46,12 @@ fun convertNasaToMonthData(nasaData: ArrayList<NASAData>) : ArrayList<Pair<NASAD
         pairData.add(Pair(data, false))
     }
     return pairData
+}
+
+fun convertMarsDTOtoPhoto (marsDataDTO: MarsDataDTO) : ArrayList<MarsPhoto> {
+    val marsPhoto = arrayListOf<MarsPhoto>()
+    for (data in marsDataDTO.photos){
+        marsPhoto.add(MarsPhoto(data.image, data.camera.name, data.date))
+    }
+    return marsPhoto
 }

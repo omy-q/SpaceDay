@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/GeekBrains/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_mars.xml" value="0.165625" />
+        <entry key="..\:/android/GeekBrains/MaterialDesign/SpaceDay/app/src/main/res/layout/item_earth.xml" value="0.19927536231884058" />
+        <entry key="..\:/android/GeekBrains/MaterialDesign/SpaceDay/app/src/main/res/layout/item_mars.xml" value="0.19927536231884058" />
+        <entry key="..\:/android/GeekBrains/MaterialDesign/SpaceDay/app/src/main/res/layout/main_fragment.xml" value="0.165625" />
+        <entry key="..\:/android/GeekBrains/MaterialDesign/SpaceDay/app/src/main/res/layout/more_information_fragment.xml" value="0.18931159420289856" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/drawable-v24/ic_archive.xml" value="0.17552083333333332" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14907407407407408" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/drawable-v24/ic_send.xml" value="0.17552083333333332" />
@@ -33,26 +38,26 @@
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/drawable/swipe_indicator_passive.xml" value="0.1484375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/font/architects_daughter.xml" value="0.28" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_main.xml" value="0.159375" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet.xml" value="0.13229166666666667" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet_bottom_navigation.xml" value="0.11145833333333334" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet.xml" value="0.264" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_planet_bottom_navigation.xml" value="0.4" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_splash.xml" value="0.16145833333333334" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/activity_test.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_action_bar.xml" value="0.1" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.159375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.264" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/bottom_sheet_layuot.xml" value="0.159375" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout.xml" value="0.4" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout.xml" value="0.5223214285714286" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout2.xml" value="0.25416666666666665" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout_end.xml" value="0.22447916666666667" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/chips_layout_start.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/favorite_images_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_earth.xml" value="0.2468415937803693" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_mars.xml" value="0.4742468415937804" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_mars.xml" value="0.45302445302445304" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_marsfragment.xml" value="0.13229166666666667" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/fragment_system.xml" value="0.23854166666666668" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_earth.xml" value="0.25416666666666665" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_favorite_image.xml" value="0.2" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_mars.xml" value="0.25416666666666665" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_mars.xml" value="0.24234354194407456" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_month_header.xml" value="0.3710843373493976" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_month_image.xml" value="0.264" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/item_month_video.xml" value="0.4" />
@@ -74,7 +79,7 @@
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/test_start.xml" value="0.18797953964194372" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/layout/text_input_layout_start.xml" value="0.14895833333333333" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/menu/menu_bottom_bar.xml" value="0.159375" />
-        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.176" />
+        <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.2" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/menu/menu_navigation.xml" value="0.159375" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/android/MaterialDesign/SpaceDay/app/src/main/res/xml/motion_scene.xml" value="0.18229166666666666" />
