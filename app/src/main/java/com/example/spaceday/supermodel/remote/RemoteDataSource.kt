@@ -33,7 +33,11 @@ class RemoteDataSource {
         apiSource.getEarthImage(BuildConfig.NASA_API_KEY).enqueue(callback)
     }
 
-    fun loadMarsImageByDate(date : String, callback: Callback<MarsData>){
+    fun loadMarsImage(callback: Callback<MarsDataDTO>){
+        apiSource.getMarsImage(BuildConfig.NASA_API_KEY, "2015-6-3").enqueue(callback)
+    }
+
+    fun loadMarsImageByDate(date : String, callback: Callback<MarsDataDTO>){
         apiSource.getMarsImage(BuildConfig.NASA_API_KEY, date).enqueue(callback)
     }
 

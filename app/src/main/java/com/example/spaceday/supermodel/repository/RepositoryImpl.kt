@@ -31,7 +31,11 @@ class RepositoryImpl(private val localDataSource : RepositoryDB) :Repository {
         remoteDataSource.loadEarthImage(callback)
     }
 
-    override fun getMarsServerData(date: String, callback: Callback<MarsData>) {
+    override fun getMarsServerData(callback: Callback<MarsDataDTO>) {
+        remoteDataSource.loadMarsImage(callback)
+    }
+
+    override fun getMarsServerDataByDate(date: String, callback: Callback<MarsDataDTO>) {
         remoteDataSource.loadMarsImageByDate(date,callback)
     }
 

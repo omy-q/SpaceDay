@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.spaceday.app.App
 import com.example.spaceday.supermodel.local.repository.RepositoryDBImpl
-import com.example.spaceday.supermodel.remote.EarthData
-import com.example.spaceday.supermodel.remote.MarsData
+import com.example.spaceday.supermodel.remote.MarsDataDTO
 import com.example.spaceday.supermodel.repository.Repository
 import com.example.spaceday.supermodel.repository.RepositoryImpl
+import com.example.spaceday.supermodel.utils.convertMarsDTOtoPhoto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,16 +19,21 @@ class MarsViewModel(
 
     fun getLiveData() = liveData
 
-    fun getData(date: String){
+    fun getData(){
         liveData.postValue(AppState.Loading)
-        repository.getMarsServerData(date, callback)
+        repository.getMarsServerData(callback)
     }
 
-    private val callback = object : Callback<MarsData> {
+    fun getDataByDate(date : String){
+        liveData.postValue(AppState.Loading)
+        repository.getMarsServerDataByDate(date, callback)
+    }
 
-        override fun onResponse(call: Call<MarsData>, response: Response<MarsData>) {
+    private val callback = object : Callback<MarsDataDTO> {
+
+        override fun onResponse(call: Call<MarsDataDTO>, response: Response<MarsDataDTO>) {
             if (response.isSuccessful && response.body() != null){
-                liveData.value = AppState.SuccessMarsData(response.body()!!)
+                liveData.value = AppState.SuccessMarsData(convertMarsDTOtoPhoto(response.body()!!))
             } else {
                 val message = response.message()
                 if (message.isNullOrEmpty()){
@@ -39,7 +44,7 @@ class MarsViewModel(
             }
         }
 
-        override fun onFailure(call: Call<MarsData>, throwable: Throwable) {
+        override fun onFailure(call: Call<MarsDataDTO>, throwable: Throwable) {
             liveData.postValue(AppState.Error(throwable))
         }
     }
